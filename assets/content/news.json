@@ -75,6 +75,17 @@
         "en": "A statement return to the club where her European story began.",
         "pt": "Um retorno marcante ao clube onde sua história europeia começou."
       }
+    },
+    {
+      "title": {
+        "pt": "TESTE (pode apagar): painel funcionando"
+      },
+      "date": {
+        "pt": "Agosto de 2026"
+      },
+      "tag": {
+        "pt": "Teste"
+      }
     }
   ]
 }
