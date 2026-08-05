@@ -21,6 +21,14 @@
       "yt": "hcEuPAhsEjg"
     },
     {
+      "external": false,
+      "title": {
+        "pt": "Gol"
+      },
+      "cat": "atletico",
+      "yt": "7bFOFZYGGFM"
+    },
+    {
       "yt": "",
       "cat": "atletico",
       "date": {
@@ -67,14 +75,6 @@
         "en": "First goal in England vs Tottenham",
         "pt": "Primeiro gol na Inglaterra contra o Tottenham"
       }
-    },
-    {
-      "external": false,
-      "title": {
-        "pt": "Gol"
-      },
-      "cat": "atletico",
-      "yt": "7bFOFZYGGFM"
     }
   ]
 }
