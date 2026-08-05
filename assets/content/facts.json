@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "k": {
+        "en": "Full name",
+        "pt": "Nome completo"
+      },
+      "v": {
+        "pt": "Giovana Queiroz Costa Garbelini",
+        "en": "Giovana Queiroz Costa Garbelini"
+      }
+    },
+    {
+      "k": {
+        "en": "Date of birth",
+        "pt": "Nascimento"
+      },
+      "v": {
+        "en": "21 June 2003",
+        "pt": "21 de junho de 2003"
+      }
+    },
+    {
+      "k": {
+        "en": "Birthplace",
+        "pt": "Naturalidade"
+      },
+      "v": {
+        "en": "São Paulo, Brazil",
+        "pt": "São Paulo, Brasil"
+      }
+    },
+    {
+      "k": {
+        "en": "Nationality",
+        "pt": "Nacionalidade"
+      },
+      "v": {
+        "en": "Brazilian · Spanish · American",
+        "pt": "Brasileira · espanhola · americana"
+      }
+    },
+    {
+      "k": {
+        "en": "Languages",
+        "pt": "Idiomas"
+      },
+      "v": {
+        "en": "Portuguese · Spanish · English",
+        "pt": "Português · espanhol · inglês"
+      }
+    },
+    {
+      "k": {
+        "en": "Position",
+        "pt": "Posição"
+      },
+      "v": {
+        "en": "Forward (Striker / Winger)",
+        "pt": "Atacante (Centroavante / Ponta)"
+      }
+    },
+    {
+      "k": {
+        "en": "Height",
+        "pt": "Altura"
+      },
+      "v": {
+        "pt": "167 cm",
+        "en": "167 cm"
+      }
+    },
+    {
+      "k": {
+        "en": "Preferred foot",
+        "pt": "Pé"
+      },
+      "v": {
+        "en": "Right",
+        "pt": "Destro"
+      }
+    },
+    {
+      "k": {
+        "en": "Current club",
+        "pt": "Clube atual"
+      },
+      "v": {
+        "pt": "Atlético de Madrid",
+        "en": "Atlético de Madrid"
+      }
+    },
+    {
+      "k": {
+        "en": "National team",
+        "pt": "Seleção"
+      },
+      "v": {
+        "en": "Brazil",
+        "pt": "Brasil"
+      }
+    },
+    {
+      "k": {
+        "en": "Shirt",
+        "pt": "Camisa"
+      },
+      "v": {
+        "en": "#11 (national team) · #18 (club)",
+        "pt": "#11 (Seleção) · #18 (clube)"
+      }
+    },
+    {
+      "k": {
+        "en": "Contract",
+        "pt": "Contrato"
+      },
+      "v": {
+        "en": "Through June 2027",
+        "pt": "Até junho de 2027"
+      }
+    }
+  ]
+}

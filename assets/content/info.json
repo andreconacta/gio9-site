@@ -1,0 +1,67 @@
+{
+  "heroImage": "assets/fotos/gio-selecao-run.jpg",
+  "brazilImage": "assets/fotos/gio-copa-america.jpg",
+  "aboutImage": "assets/fotos/gio-atletico-estudio.jpg",
+  "numbers": [
+    {
+      "v": "200+",
+      "en": "Career<br>appearances",
+      "pt": "Jogos na<br>carreira"
+    },
+    {
+      "v": "52",
+      "en": "Career<br>goals",
+      "pt": "Gols na<br>carreira"
+    },
+    {
+      "v": "18",
+      "en": "Career<br>assists",
+      "pt": "Assistências<br>na carreira"
+    },
+    {
+      "v": "2×",
+      "en": "Copa América<br>Champion",
+      "pt": "Campeã da<br>Copa América"
+    }
+  ],
+  "contact": {
+    "email": "press@giogarbelini.com",
+    "partnerships": "brands@giogarbelini.com",
+    "instagram": "gio.garbelini",
+    "tiktok": "gio.garbelini",
+    "x": "giogarbelini",
+    "locations": {
+      "en": "Madrid · São Paulo · Worldwide",
+      "pt": "Madri · São Paulo · Mundo"
+    }
+  },
+  "followers": {
+    "instagram": "564K",
+    "tiktok": "829K",
+    "x": "200K",
+    "combined": "1.5M+"
+  },
+  "partners": [
+    {
+      "name": "Nike",
+      "role": {
+        "en": "Kit sponsor",
+        "pt": "Material esportivo"
+      }
+    },
+    {
+      "name": "Volkswagen",
+      "role": {
+        "en": "Mobility partner",
+        "pt": "Parceira de mobilidade"
+      }
+    },
+    {
+      "name": "PlayStation",
+      "role": {
+        "en": "Gaming partner",
+        "pt": "Parceira de games"
+      }
+    }
+  ]
+}

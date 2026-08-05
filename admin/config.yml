@@ -44,14 +44,16 @@ collections:
               - name: "date"
                 label: "Data"
                 widget: "object"
+                required: false
                 fields:
-                  - { name: "pt", label: "Português (ex.: Agosto de 2025)", widget: "string" }
+                  - { name: "pt", label: "Português (ex.: Agosto de 2025)", widget: "string", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
               - name: "tag"
                 label: "Categoria/etiqueta"
                 widget: "object"
+                required: false
                 fields:
-                  - { name: "pt", label: "Português (ex.: Seleção Brasileira)", widget: "string" }
+                  - { name: "pt", label: "Português (ex.: Seleção Brasileira)", widget: "string", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
               - name: "excerpt"
                 label: "Resumo"
@@ -126,8 +128,9 @@ collections:
               - name: "tag"
                 label: "Etiqueta (ex.: Atlético de Madrid)"
                 widget: "object"
+                required: false
                 fields:
-                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "pt", label: "Português", widget: "string", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
               - { name: "id", label: "ID do YouTube (a parte depois de watch?v=)", widget: "string" }
               - { name: "external", label: "Vídeo de terceiros? (marque para abrir no YouTube em vez de tocar no site)", widget: "boolean", default: false, required: false }
@@ -160,12 +163,14 @@ collections:
               - name: "label"
                 label: "Legenda"
                 widget: "object"
+                required: false
                 fields:
-                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "pt", label: "Português", widget: "string", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
               - name: "cat"
                 label: "Categoria"
                 widget: "select"
+                required: false
                 options:
                   - { label: "Atlético", value: "atletico" }
                   - { label: "Brasil", value: "brazil" }
@@ -182,3 +187,163 @@ collections:
                   - { label: "Normal", value: "" }
                   - { label: "Largo (ocupa 2 colunas)", value: "wide" }
                   - { label: "Alto (retrato)", value: "tall" }
+
+  # ---------------- CARREIRA / CLUBES ----------------
+  - name: "carreira"
+    label: "Carreira e clubes"
+    delete: false
+    files:
+      - name: "carreira"
+        label: "Clubes (carreira)"
+        file: "assets/content/career.json"
+        description: "Do clube mais recente para o mais antigo."
+        fields:
+          - name: "items"
+            label: "Clubes"
+            label_singular: "Clube"
+            widget: "list"
+            summary: "{{fields.club}}"
+            fields:
+              - { name: "club", label: "Nome do clube", widget: "string" }
+              - name: "years"
+                label: "Período"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "pt", label: "Português (ex.: 2024 até hoje)", widget: "string", required: false }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "place"
+                label: "Local"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "pt", label: "Português (ex.: Madri, Espanha)", widget: "string", required: false }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "note"
+                label: "Descrição"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "pt", label: "Português", widget: "text", required: false }
+                  - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
+              - { name: "img", label: "Foto do clube (opcional)", widget: "image", required: false }
+
+  # ---------------- TITULOS E PREMIOS ----------------
+  - name: "titulos"
+    label: "Títulos e prêmios"
+    delete: false
+    files:
+      - name: "titulos"
+        label: "Lista de títulos"
+        file: "assets/content/honours.json"
+        fields:
+          - name: "items"
+            label: "Títulos"
+            label_singular: "Título"
+            widget: "list"
+            summary: "{{fields.t.pt}}"
+            fields:
+              - { name: "em", label: "Emoji (ex.: trofeu)", widget: "string", required: false }
+              - name: "t"
+                label: "Título"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "s"
+                label: "Detalhe (ex.: Brasil, ano, clube)"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "pt", label: "Português", widget: "string", required: false }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+
+  # ---------------- PERFIL (SOBRE) ----------------
+  - name: "perfil"
+    label: "Perfil da jogadora (Sobre)"
+    delete: false
+    files:
+      - name: "perfil"
+        label: "Ficha do perfil"
+        file: "assets/content/facts.json"
+        fields:
+          - name: "items"
+            label: "Itens do perfil"
+            label_singular: "Item"
+            widget: "list"
+            summary: "{{fields.k.pt}}"
+            fields:
+              - name: "k"
+                label: "Campo (ex.: Altura)"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "v"
+                label: "Valor (ex.: 167 cm)"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+
+  # ---------------- NUMEROS / CONTATO / REDES / PARCEIROS ----------------
+  - name: "info"
+    label: "Números, contato, redes e parceiros"
+    delete: false
+    files:
+      - name: "info"
+        label: "Informações do site"
+        file: "assets/content/info.json"
+        fields:
+          - name: "numbers"
+            label: "Números de destaque (início)"
+            widget: "list"
+            required: false
+            max: 4
+            summary: "{{fields.v}}"
+            fields:
+              - { name: "v", label: "Número (ex.: 200+)", widget: "string" }
+              - { name: "pt", label: "Legenda em português", widget: "string", required: false }
+              - { name: "en", label: "Legenda em inglês (opcional)", widget: "string", required: false }
+          - name: "contact"
+            label: "Contato e redes"
+            widget: "object"
+            fields:
+              - { name: "email", label: "E-mail geral", widget: "string", required: false }
+              - { name: "partnerships", label: "E-mail de parcerias", widget: "string", required: false }
+              - { name: "instagram", label: "Instagram (sem @)", widget: "string", required: false }
+              - { name: "tiktok", label: "TikTok (sem @)", widget: "string", required: false }
+              - { name: "x", label: "X / Twitter (sem @)", widget: "string", required: false }
+              - name: "locations"
+                label: "Base (ex.: Madri, São Paulo)"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "pt", label: "Português", widget: "string", required: false }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+          - name: "followers"
+            label: "Seguidores"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "instagram", label: "Instagram (ex.: 564K)", widget: "string", required: false }
+              - { name: "tiktok", label: "TikTok (ex.: 829K)", widget: "string", required: false }
+              - { name: "x", label: "X (ex.: 200K)", widget: "string", required: false }
+              - { name: "combined", label: "Total combinado (ex.: 1.5M+)", widget: "string", required: false }
+          - name: "partners"
+            label: "Patrocinadores e parceiros"
+            widget: "list"
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: "name", label: "Nome (ex.: Nike)", widget: "string" }
+              - name: "role"
+                label: "Tipo (ex.: Material esportivo)"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "pt", label: "Português", widget: "string", required: false }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+          - { name: "heroImage", label: "Foto do topo (início)", widget: "image", required: false }
+          - { name: "brazilImage", label: "Foto da seção Brasil (início)", widget: "image", required: false }
+          - { name: "aboutImage", label: "Foto da página Sobre", widget: "image", required: false }

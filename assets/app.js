@@ -405,11 +405,30 @@
      encontrar, usa eles no lugar dos valores de fallback do data.js.
      Se falhar (ex.: abrir o arquivo local sem servidor), mantem o fallback. */
   async function loadContent(){
-    const map={news:'assets/content/news.json',goals:'assets/content/goals.json',videos:'assets/content/videos.json',photos:'assets/content/photos.json'};
+    const map={
+      news:'assets/content/news.json', goals:'assets/content/goals.json',
+      videos:'assets/content/videos.json', photos:'assets/content/photos.json',
+      career:'assets/content/career.json', honours:'assets/content/honours.json',
+      facts:'assets/content/facts.json'
+    };
     let changed=false;
     await Promise.all(Object.entries(map).map(async([k,url])=>{
       try{ const r=await fetch(url,{cache:'no-store'}); if(r.ok){ const j=await r.json(); if(j&&Array.isArray(j.items)){ D[k]=j.items; changed=true; } } }catch(e){}
     }));
+    // Informacoes gerais: numeros, contato, redes, parceiros e imagens
+    try{
+      const r=await fetch('assets/content/info.json',{cache:'no-store'});
+      if(r.ok){ const j=await r.json(); if(j){
+        if(Array.isArray(j.numbers)&&j.numbers.length) D.numbers=j.numbers;
+        if(j.contact) D.contact=Object.assign({},D.contact,j.contact);
+        if(j.followers) D.followers=j.followers;
+        if(Array.isArray(j.partners)&&j.partners.length) D.partners=j.partners;
+        if(j.heroImage!=null) D.heroImage=j.heroImage;
+        if(j.brazilImage!=null) D.brazilImage=j.brazilImage;
+        if(j.aboutImage!=null) D.aboutImage=j.aboutImage;
+        changed=true;
+      } }
+    }catch(e){}
     return changed;
   }
 
