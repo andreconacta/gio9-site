@@ -148,7 +148,12 @@
     },
     {
       "layout": "",
-      "img": "assets/fotos/futbolista-brasilena-gio-con-leo.jpg"
+      "img": "assets/fotos/futbolista-brasilena-gio-con-leo.jpg",
+      "label": {
+        "pt": "Leo Messi",
+        "en": "Leo Messi"
+      },
+      "cat": "behind"
     }
   ]
 }
