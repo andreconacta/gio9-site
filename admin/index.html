@@ -6,7 +6,96 @@
   <title>Gio Garbelini · Painel</title>
 </head>
 <body>
-  <!-- Painel de administração (Decap CMS). Acesse em gio9.com/admin -->
+  <!-- Painel de administracao (Decap CMS). Acesse em giogarbelini.com/admin -->
   <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
+
+  <!-- Pre-visualizacao de enquadramento das fotos (clique na foto para achar os numeros) -->
+  <script>
+  (function(){
+    var tries=0;
+    function boot(){
+      tries++;
+      if(!(window.CMS && window.h && window.createClass)){
+        if(tries<60) return setTimeout(boot,150);
+        return; // se os globais nao existirem, o painel segue funcionando sem esta pre-visualizacao
+      }
+      var h=window.h, createClass=window.createClass, CMS=window.CMS;
+
+      function op(item,defY){
+        var map={top:'6%',center:'50%',bottom:'92%'};
+        var fx=item.get('fx'), fy=item.get('fy'), pos=item.get('pos');
+        var hx=(typeof fx==='number')?fx+'%':'50%';
+        var vy;
+        if(typeof fy==='number') vy=fy+'%';
+        else if(pos&&map[pos]) vy=map[pos];
+        else vy=defY;
+        return hx+' '+vy;
+      }
+      function srcOf(getAsset,img){
+        var s='';
+        try{ var a=getAsset(img); s=(a&&a.toString)?a.toString():(''+(a||'')); }catch(e){}
+        if(!s || (s.indexOf('blob:')!==0 && s.indexOf('assets/')===0)){ s='/'+String(img||'').replace(/^\/+/,''); }
+        return s;
+      }
+
+      function makePreview(defY, aspectFor, labelOf, introTxt){
+        return createClass({
+          getInitialState:function(){ return {hint:''}; },
+          pick:function(e){
+            var r=e.currentTarget.getBoundingClientRect();
+            var x=Math.max(0,Math.min(100,Math.round((e.clientX-r.left)/r.width*100)));
+            var y=Math.max(0,Math.min(100,Math.round((e.clientY-r.top)/r.height*100)));
+            this.setState({hint:'Para esta foto, digite nos campos:  horizontal '+x+'   ,   vertical '+y});
+          },
+          render:function(){
+            var self=this, getAsset=this.props.getAsset;
+            var items=this.props.entry.getIn(['data','items']);
+            var cards=[];
+            if(items && items.forEach){
+              items.forEach(function(it,idx){
+                var img=it.get('img');
+                var aspect=aspectFor(it);
+                var media = img
+                  ? h('img',{ src:srcOf(getAsset,img), onClick:self.pick, title:'Clique para descobrir os numeros de enquadramento',
+                      style:{width:'100%',aspectRatio:aspect,objectFit:'cover',objectPosition:op(it,defY),display:'block',cursor:'crosshair'} })
+                  : h('div',{ style:{width:'100%',aspectRatio:aspect,display:'flex',alignItems:'center',justifyContent:'center',color:'#777',font:'12px sans-serif'} }, 'sem foto');
+                cards.push(
+                  h('figure',{ key:idx, style:{margin:0,background:'#141416',borderRadius:'10px',overflow:'hidden',border:'1px solid #26262b'} },
+                    media,
+                    h('figcaption',{ style:{padding:'7px 9px',font:'12px sans-serif',color:'#dcdce0'} }, labelOf(it)||'(sem legenda)')
+                  )
+                );
+              });
+            }
+            return h('div',{ style:{padding:'16px',background:'#0b0b0c',minHeight:'100vh',boxSizing:'border-box'} },
+              h('div',{ style:{font:'12px/1.5 sans-serif',color:'#c9a24b',marginBottom:'10px'} }, introTxt),
+              this.state.hint
+                ? h('div',{ style:{font:'13px sans-serif',color:'#111',background:'#c9a24b',padding:'9px 11px',borderRadius:'6px',marginBottom:'12px',fontWeight:'600'} }, this.state.hint)
+                : null,
+              h('div',{ style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(150px,1fr))',gap:'10px'} }, cards)
+            );
+          }
+        });
+      }
+
+      // Galeria de fotos
+      CMS.registerPreviewTemplate('fotos', makePreview(
+        '25%',
+        function(it){ var l=it.get('layout'); return l==='wide'?'16 / 10':(l==='tall'?'3 / 4':'1 / 1'); },
+        function(it){ return it.getIn(['label','pt']) || it.getIn(['label','en']) || ''; },
+        'Pre-visualizacao das fotos da galeria. Clique numa foto para descobrir os numeros e depois digite nos campos Enquadramento horizontal e vertical.'
+      ));
+
+      // Carreira / clubes
+      CMS.registerPreviewTemplate('carreira', makePreview(
+        '20%',
+        function(){ return '4 / 3'; },
+        function(it){ return it.get('club') || ''; },
+        'Pre-visualizacao dos cards de clube. Clique numa foto para descobrir os numeros e depois digite nos campos Enquadramento horizontal e vertical.'
+      ));
+    }
+    boot();
+  })();
+  </script>
 </body>
 </html>

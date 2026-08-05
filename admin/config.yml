@@ -187,6 +187,23 @@ collections:
                   - { label: "Normal", value: "" }
                   - { label: "Largo (ocupa 2 colunas)", value: "wide" }
                   - { label: "Alto (retrato)", value: "tall" }
+              - name: "fx"
+                label: "Enquadramento horizontal (0 = esquerda, 100 = direita)"
+                widget: "number"
+                value_type: "int"
+                min: 0
+                max: 100
+                step: 5
+                required: false
+                hint: "Veja a pré-visualização ao lado. Clique na foto para descobrir os números certos."
+              - name: "fy"
+                label: "Enquadramento vertical (0 = topo/rosto, 100 = base)"
+                widget: "number"
+                value_type: "int"
+                min: 0
+                max: 100
+                step: 5
+                required: false
 
   # ---------------- CARREIRA / CLUBES ----------------
   - name: "carreira"
@@ -227,6 +244,23 @@ collections:
                   - { name: "pt", label: "Português", widget: "text", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
               - { name: "img", label: "Foto do clube (opcional)", widget: "image", required: false }
+              - name: "fx"
+                label: "Enquadramento horizontal (0 = esquerda, 100 = direita)"
+                widget: "number"
+                value_type: "int"
+                min: 0
+                max: 100
+                step: 5
+                required: false
+                hint: "Veja a pré-visualização ao lado. Clique na foto para descobrir os números certos."
+              - name: "fy"
+                label: "Enquadramento vertical (0 = topo/rosto, 100 = base)"
+                widget: "number"
+                value_type: "int"
+                min: 0
+                max: 100
+                step: 5
+                required: false
 
   # ---------------- TITULOS E PREMIOS ----------------
   - name: "titulos"

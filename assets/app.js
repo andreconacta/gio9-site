@@ -5,6 +5,9 @@
 (function(){
   const D = window.DATA;
 
+  /* Chave do formulario de contato (Web3Forms). Os envios chegam por e-mail. */
+  const WEB3FORMS_KEY = 'REPLACE_WITH_WEB3FORMS_KEY';
+
   /* Rotulos fixos e textos das paginas (EN / PT) */
   const UI = {
     en:{
@@ -286,10 +289,22 @@
       contactCTA();
   };
 
+  /* Enquadramento da foto: usa fx/fy (0 a 100) do painel; cai para pos antigo; senao usa padrao. */
+  function focalOP(o,defY){
+    const map={top:'6%',center:'50%',bottom:'92%'};
+    const hx=(typeof o.fx==='number')?o.fx+'%':'50%';
+    let vy;
+    if(typeof o.fy==='number') vy=o.fy+'%';
+    else if(o.pos&&map[o.pos]) vy=map[o.pos];
+    else vy=defY;
+    return hx+' '+vy;
+  }
+
   R.clubes=()=>{
     const u=U();
     const cards=D.career.map(c=>{
-      const thumb=c.img?'<img src="'+c.img+'" alt="'+c.club+'" loading="lazy" onerror="this.style.display=\'none\'">':ph(c.club,false,true);
+      const op=focalOP(c,'20%');
+      const thumb=c.img?'<img src="'+c.img+'" alt="'+c.club+'" loading="lazy" style="object-position:'+op+'" onerror="this.style.display=\'none\'">':ph(c.club,false,true);
       return '<div class="club-card reveal"><div class="thumb">'+thumb+'</div><div class="body"><div class="yr">'+T(c.years)+'</div><h3>'+c.club+'</h3><div class="place">'+T(c.place)+'</div><p>'+T(c.note)+'</p></div></div>';
     }).join('');
     return pageHero(u.p_clubs)+
@@ -311,7 +326,8 @@
     const u=U();
     const chips=D.photoCats.map((c,i)=>'<button data-f="'+c.key+'"'+(i===0?' class="on"':'')+'>'+T(c)+'</button>').join('');
     const tiles=D.photos.map(p=>{
-      const inner=p.img?'<img src="'+p.img+'" alt="'+T(p.label)+'" loading="lazy" style="height:100%;object-fit:cover">':ph(T(p.label),false,true);
+      const opf=focalOP(p,'25%');
+      const inner=p.img?'<img src="'+p.img+'" alt="'+T(p.label)+'" loading="lazy" style="height:100%;object-fit:cover;object-position:'+opf+'">':ph(T(p.label),false,true);
       return '<figure class="tile ph '+(p.layout==='wide'?'wide':p.layout==='tall'?'tall':'')+'" data-cat="'+p.cat+'" style="'+(p.img?'background:none':'')+'">'+inner+'<span class="cap">'+T(p.label)+'</span></figure>';
     }).join('');
     return pageHero(u.p_photos)+
@@ -334,9 +350,11 @@
   function contactForm(){
     const u=U();
     const opts=u.contact_chips.map(c=>'<option>'+c+'</option>').join('');
-    return '<form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform" id="cform">'+
-      '<input type="hidden" name="form-name" value="contato" />'+
-      '<p class="hp"><label>'+(LANG==='pt'?'Não preencha':'Do not fill')+' <input name="bot-field" /></label></p>'+
+    return '<form class="cform" id="cform">'+
+      '<input type="hidden" name="access_key" value="'+WEB3FORMS_KEY+'" />'+
+      '<input type="hidden" name="subject" value="Novo contato pelo site (Gio Garbelini)" />'+
+      '<input type="hidden" name="from_name" value="Site Gio Garbelini" />'+
+      '<input type="checkbox" name="botcheck" class="hp" style="display:none" tabindex="-1" autocomplete="off" />'+
       '<label class="fl"><span>'+u.f_name+'</span><input name="name" required></label>'+
       '<label class="fl"><span>'+u.f_company+'</span><input name="company"></label>'+
       '<label class="fl"><span>'+u.f_email+'</span><input type="email" name="email" required></label>'+
@@ -377,15 +395,25 @@
   let io;
   function reveals(){ if(io)io.disconnect(); io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.1}); $$('.reveal').forEach(el=>io.observe(el)); }
 
-  /* ---------- Formulario de contato (Netlify Forms) ---------- */
+  /* ---------- Formulario de contato (Web3Forms) ---------- */
   function bindForm(){
     const f=$('#cform'); if(!f) return;
     f.addEventListener('submit',function(e){
       e.preventDefault();
       const btn=f.querySelector('button[type=submit]'); if(btn) btn.disabled=true;
-      const body=new URLSearchParams(new FormData(f)).toString();
-      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
-        .then(r=>{ const m=$('#fmsg'); if(m){ m.textContent=U().f_ok; m.className='fmsg ok'; } f.reset(); })
+      const data=Object.fromEntries(new FormData(f).entries());
+      // Enquanto a chave do Web3Forms nao estiver configurada, o envio abre o e-mail do visitante.
+      if(!WEB3FORMS_KEY || WEB3FORMS_KEY.indexOf('REPLACE')===0){
+        const to=(D.contact&&D.contact.email)||'press@giogarbelini.com';
+        const subj=encodeURIComponent('Contato pelo site - '+(data.name||''));
+        const lines=['Nome: '+(data.name||''),'Empresa: '+(data.company||''),'E-mail: '+(data.email||''),'Tipo: '+(data.type||''),'','Mensagem:',(data.message||'')];
+        window.location.href='mailto:'+to+'?subject='+subj+'&body='+encodeURIComponent(lines.join('\n'));
+        const m=$('#fmsg'); if(m){ m.textContent=U().f_ok; m.className='fmsg ok'; }
+        if(btn) btn.disabled=false; return;
+      }
+      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+        .then(r=>r.json())
+        .then(j=>{ const m=$('#fmsg'); if(j&&j.success){ if(m){ m.textContent=U().f_ok; m.className='fmsg ok'; } f.reset(); } else { if(m){ m.textContent=U().f_err; m.className='fmsg err'; } } })
         .catch(()=>{ const m=$('#fmsg'); if(m){ m.textContent=U().f_err; m.className='fmsg err'; } })
         .finally(()=>{ if(btn) btn.disabled=false; });
     });
