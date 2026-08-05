@@ -193,14 +193,42 @@
     return '<section class="contact-cta"><div class="wrap"><p class="eyebrow" style="color:var(--gold)">'+u.contact_label+'</p><div class="chips">'+u.contact_chips.map(c=>'<span class="chip">'+c+'</span>').join('')+'</div><h2>'+u.contact_h+'</h2><a class="mail" href="mailto:'+D.contact.email+'">'+D.contact.email+' <span>↗</span></a></div></section>';
   }
   function videoCards(list){
-    return '<div class="videos-grid">'+list.map(v=>'<div class="video-card reveal" data-id="'+v.id+'"><div class="v-frame"><img src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="'+T(v.title)+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="play"></div></div><div class="v-meta"><div class="tag">'+T(v.tag)+'</div><div class="ttl">'+T(v.title)+'</div></div></div>').join('')+'</div>';
+    return '<div class="videos-grid">'+list.map(v=>'<div class="video-card reveal" data-id="'+v.id+'" data-ext="'+(v.external?'1':'')+'"><div class="v-frame"><img src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="'+T(v.title)+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="play"></div></div><div class="v-meta"><div class="tag">'+T(v.tag)+'</div><div class="ttl">'+T(v.title)+'</div></div></div>').join('')+'</div>';
+  }
+  /* Janela sobreposta (lightbox) que toca o video direto no site. */
+  function ensureLightbox(){
+    let ov=document.getElementById('vlightbox');
+    if(ov) return ov;
+    const st=document.createElement('style');
+    st.textContent='#vlightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center}#vlightbox.open{display:flex}#vlightbox .vlb-bg{position:absolute;inset:0;background:rgba(6,6,8,.92)}#vlightbox .vlb-box{position:relative;width:min(92vw,980px);z-index:1}#vlightbox .vlb-frame{position:relative;padding-top:56.25%;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}#vlightbox .vlb-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}#vlightbox .vlb-close{position:absolute;top:-46px;right:0;background:none;border:none;color:#fff;font-size:2.3rem;line-height:1;cursor:pointer}#vlightbox .vlb-yt{position:absolute;top:-40px;left:0;color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}#vlightbox .vlb-yt:hover{color:var(--gold)}';
+    document.head.appendChild(st);
+    ov=document.createElement('div'); ov.id='vlightbox';
+    ov.innerHTML='<div class="vlb-bg"></div><div class="vlb-box"><a class="vlb-yt" target="_blank" rel="noopener">Abrir no YouTube ↗</a><button class="vlb-close" aria-label="Fechar">×</button><div class="vlb-frame"></div></div>';
+    document.body.appendChild(ov);
+    ov.querySelector('.vlb-bg').onclick=closeVideo;
+    ov.querySelector('.vlb-close').onclick=closeVideo;
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeVideo(); });
+    return ov;
+  }
+  function openVideo(id){
+    if(!id) return;
+    const ov=ensureLightbox();
+    ov.querySelector('.vlb-yt').href='https://www.youtube.com/watch?v='+id;
+    ov.querySelector('.vlb-frame').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" title="Vídeo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    ov.classList.add('open'); document.body.classList.add('no-scroll');
+  }
+  function closeVideo(){
+    const ov=document.getElementById('vlightbox');
+    if(ov){ ov.classList.remove('open'); ov.querySelector('.vlb-frame').innerHTML=''; }
+    document.body.classList.remove('no-scroll');
   }
   function bindVideos(scope){
-    // Abre o video no YouTube em outra aba (evita o Erro 153 quando o dono
-    // desativa a incorporacao, comum em videos de clube/seleção).
+    // Padrao: toca o video direto no site (janela sobreposta).
+    // Se o video estiver marcado como "de terceiros" (data-ext="1"), abre no YouTube.
     $$('.video-card',scope).forEach(card=>{ card.style.cursor='pointer'; card.onclick=()=>{
       const id=card.dataset.id; if(!id) return;
-      window.open('https://www.youtube.com/watch?v='+id,'_blank','noopener');
+      if(card.dataset.ext==='1'){ window.open('https://www.youtube.com/watch?v='+id,'_blank','noopener'); }
+      else{ openVideo(id); }
     };});
   }
   function pageHero(arr){
@@ -273,7 +301,7 @@
     const chips=D.goalCats.map((c,i)=>'<button data-f="'+c.key+'"'+(i===0?' class="on"':'')+'>'+T(c)+'</button>').join('');
     const cards=D.goals.map(g=>{
       const thumb=g.yt?'<div class="v-frame"><img src="https://i.ytimg.com/vi/'+g.yt+'/hqdefault.jpg" alt="'+T(g.title)+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="play"></div></div>':'<div class="v-frame">'+ph(LANG==='pt'?'Vídeo do gol':'Goal video',true,false)+'</div>';
-      return '<div class="video-card reveal" data-cat="'+g.cat+'" data-id="'+(g.yt||'')+'">'+thumb+'<div class="v-meta"><div class="tag">'+T(g.date)+'</div><div class="ttl">'+T(g.title)+'</div></div></div>';
+      return '<div class="video-card reveal" data-cat="'+g.cat+'" data-id="'+(g.yt||'')+'" data-ext="'+(g.external?'1':'')+'">'+thumb+'<div class="v-meta"><div class="tag">'+T(g.date)+'</div><div class="ttl">'+T(g.title)+'</div></div></div>';
     }).join('');
     return pageHero(u.p_goals)+
       '<section class="section"><div class="wrap"><div class="filters" id="goalFilters">'+chips+'</div><div class="videos-grid" id="goalGrid">'+cards+'</div></div></section>'+ contactCTA();
@@ -387,4 +415,13 @@
 
   renderAll();
   loadContent().then(changed=>{ if(changed) renderAll(); });
+
+  /* Cloudflare Web Analytics (metricas de visita, sem cookies) */
+  try{
+    var cfb=document.createElement('script');
+    cfb.defer=true;
+    cfb.src='https://static.cloudflareinsights.com/beacon.min.js';
+    cfb.setAttribute('data-cf-beacon','{"token": "e9af6f60f9ba482f9ae10668f4b94e02"}');
+    document.head.appendChild(cfb);
+  }catch(e){}
 })();

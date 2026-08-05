@@ -86,18 +86,21 @@ collections:
               - name: "date"
                 label: "Data"
                 widget: "object"
+                required: false
                 fields:
-                  - { name: "pt", label: "Português (ex.: Ago 2024)", widget: "string" }
+                  - { name: "pt", label: "Português (ex.: Ago 2024)", widget: "string", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
               - name: "cat"
                 label: "Categoria"
                 widget: "select"
+                required: false
                 options:
                   - { label: "Brasil", value: "brazil" }
                   - { label: "Atlético", value: "atletico" }
                   - { label: "Madrid CFF", value: "madridcff" }
                   - { label: "Inglaterra", value: "england" }
               - { name: "yt", label: "ID do vídeo no YouTube (opcional, a parte depois de watch?v=)", widget: "string", required: false }
+              - { name: "external", label: "Vídeo de terceiros? (marque para abrir no YouTube em vez de tocar no site)", widget: "boolean", default: false, required: false }
 
   # ---------------- VIDEOS ----------------
   - name: "videos"
@@ -127,6 +130,7 @@ collections:
                   - { name: "pt", label: "Português", widget: "string" }
                   - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
               - { name: "id", label: "ID do YouTube (a parte depois de watch?v=)", widget: "string" }
+              - { name: "external", label: "Vídeo de terceiros? (marque para abrir no YouTube em vez de tocar no site)", widget: "boolean", default: false, required: false }
               - name: "cat"
                 label: "Categoria (para filtro)"
                 widget: "select"
@@ -172,6 +176,7 @@ collections:
               - name: "layout"
                 label: "Formato na galeria"
                 widget: "select"
+                required: false
                 default: ""
                 options:
                   - { label: "Normal", value: "" }
