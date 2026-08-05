@@ -1,6 +1,20 @@
 {
   "items": [
     {
+      "title": {
+        "pt": "O Atlético de Madrid empatou em 1 a 1 com o Granada no primeiro jogo da pré-temporada. Gio atuou por 75 minutos.",
+        "en": "Atlético de Madrid drew 1–1 with Granada in their first pre-season match. Gio played 75 minutes."
+      },
+      "date": {
+        "pt": "AGOSTO DE 2026",
+        "en": "AUGUST 2026"
+      },
+      "tag": {
+        "pt": "ATLETICO DE MADRID",
+        "en": "ATLETICO DE MADRID"
+      }
+    },
+    {
       "date": {
         "en": "August 2025",
         "pt": "Agosto de 2025"
@@ -74,20 +88,6 @@
       "excerpt": {
         "en": "A statement return to the club where her European story began.",
         "pt": "Um retorno marcante ao clube onde sua história europeia começou."
-      }
-    },
-    {
-      "title": {
-        "pt": "O Atlético de Madrid empatou em 1 a 1 com o Granada no primeiro jogo da pré-temporada. Gio atuou por 75 minutos.",
-        "en": "Atlético de Madrid drew 1–1 with Granada in their first pre-season match. Gio played 75 minutes."
-      },
-      "date": {
-        "pt": "AGOSTO DE 2026",
-        "en": "AUGUST 2026"
-      },
-      "tag": {
-        "pt": "ATLETICO DE MADRID",
-        "en": "ATLETICO DE MADRID"
       }
     }
   ]
