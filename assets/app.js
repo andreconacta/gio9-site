@@ -23,7 +23,7 @@
       brazil_label:'Brazil', brazil_h:'More than a shirt. <span class="serif">A calling.</span>',
       brazil_p:'Two Copa América titles. An Olympian. Thirty senior appearances and counting. Every time Gio wears Brazil, she carries the places, people and dreams that made her.',
       news_label:'Latest', news_h:'News', news_link:'All news',
-      partners_label:'Official sponsor', partners_h:'Built for brands that move culture.',
+      partners_label:'Partners & sponsors', partners_h:'Built for brands that move culture.',
       partners_p:'Gio connects elite football with audiences across Brazil, Spain and the wider world, a combined community of more than 1.5M followers. Partnership opportunities include campaigns, ambassadorships, appearances and original content.',
       partners_note:'Selected collaborations and campaign work available on request.',
       contact_label:'Partnerships · Media · Appearances', contact_h:'Let’s make <span class="serif">an impact.</span>',
@@ -46,7 +46,10 @@
       photos_soon:'Final rights-cleared photos coming soon.',
       read_more:'Read', watch:'Watch',
       foot_about:'Brazilian international forward. Atlético de Madrid. Seleção Brasileira. Playing bold, from São Paulo to the world.',
-      foot_nav:'Navigate', foot_more:'More', foot_connect:'Connect', rights:'All rights reserved.'
+      foot_nav:'Navigate', foot_more:'More', foot_connect:'Connect', rights:'All rights reserved.',
+      f_name:'Name', f_company:'Company', f_email:'Email', f_type:'Type of enquiry', f_msg:'Message', f_send:'Send message',
+      f_ok:'Thank you. Your message has been sent, we respond within 48 hours.', f_err:'Something went wrong, please email us directly.',
+      combined_k:'Combined reach'
     },
     pt:{
       brandTag:'Play Bold',
@@ -64,7 +67,7 @@
       brazil_label:'Brasil', brazil_h:'Mais que uma camisa. <span class="serif">Um chamado.</span>',
       brazil_p:'Dois títulos da Copa América. Uma olímpica. Trinta jogos pela Seleção e contando. Toda vez que veste o Brasil, a Gio carrega os lugares, as pessoas e os sonhos que a formaram.',
       news_label:'Últimas', news_h:'Notícias', news_link:'Todas as notícias',
-      partners_label:'Patrocinadora oficial', partners_h:'Feita para marcas que movem a cultura.',
+      partners_label:'Patrocinadores e parceiros', partners_h:'Feita para marcas que movem a cultura.',
       partners_p:'A Gio conecta o futebol de elite a públicos no Brasil, na Espanha e no mundo, uma comunidade combinada de mais de 1,5 milhão de seguidores. As oportunidades de parceria incluem campanhas, embaixadora de marca, aparições e conteúdo original.',
       partners_note:'Colaborações selecionadas e trabalhos de campanha sob consulta.',
       contact_label:'Parcerias · Mídia · Aparições', contact_h:'Vamos causar <span class="serif">impacto.</span>',
@@ -86,12 +89,31 @@
       photos_soon:'Seleção final de fotos com direitos liberados em breve.',
       read_more:'Ler', watch:'Assistir',
       foot_about:'Atacante brasileira internacional. Atlético de Madrid. Seleção Brasileira. Jogando ousado, de São Paulo para o mundo.',
-      foot_nav:'Navegar', foot_more:'Mais', foot_connect:'Conecte-se', rights:'Todos os direitos reservados.'
+      foot_nav:'Navegar', foot_more:'Mais', foot_connect:'Conecte-se', rights:'Todos os direitos reservados.',
+      f_name:'Nome', f_company:'Empresa', f_email:'E-mail', f_type:'Tipo de contato', f_msg:'Mensagem', f_send:'Enviar mensagem',
+      f_ok:'Obrigado. Sua mensagem foi enviada, respondemos em até 48 horas.', f_err:'Algo deu errado, escreva direto para o nosso e-mail.',
+      combined_k:'Alcance total'
     }
   };
 
-  let LANG = 'en';
+  // Idioma inicial: detecta o navegador (portugues -> pt), senao ingles.
+  // Se a pessoa ja escolheu antes, respeita a escolha guardada.
+  let LANG = ((navigator.language||navigator.userLanguage||'en').toLowerCase().indexOf('pt')===0) ? 'pt' : 'en';
   try{ const s=localStorage.getItem('gio_lang'); if(s==='pt'||s==='en') LANG=s; }catch(e){}
+
+  /* Icones de redes sociais (SVG). Handles ficam em data.js (contact). */
+  const SOCIAL_SVG = {
+    instagram:'<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/></svg>',
+    tiktok:'<svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M16.5 3c.3 2 1.6 3.5 3.5 3.8v2.4c-1.3.1-2.5-.3-3.5-1v6.1c0 3-2.2 5.2-5.1 5.2-2.9 0-5.1-2.2-5.1-5 0-2.7 2-4.9 4.7-5v2.5c-.3 0-.6.1-.9.2-1 .3-1.5 1.2-1.4 2.3.1 1.1 1 1.9 2.1 1.8 1.1 0 1.9-.9 1.9-2V3h3.8z"/></svg>',
+    x:'<svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-5.9l-4.3-5.6L6.6 21H3.5l7-8.1L2.6 3h6l3.9 5.2L17.5 3zm-1 16h1.6L8 4.5H6.3L16.5 19z"/></svg>'
+  };
+  function socials(cls){
+    const c=D.contact||{}; let out='';
+    if(c.instagram) out+='<a href="https://instagram.com/'+c.instagram+'" target="_blank" rel="noopener" aria-label="Instagram">'+SOCIAL_SVG.instagram+'</a>';
+    if(c.tiktok)    out+='<a href="https://www.tiktok.com/@'+c.tiktok+'" target="_blank" rel="noopener" aria-label="TikTok">'+SOCIAL_SVG.tiktok+'</a>';
+    if(c.x)         out+='<a href="https://x.com/'+c.x+'" target="_blank" rel="noopener" aria-label="X">'+SOCIAL_SVG.x+'</a>';
+    return '<div class="socials'+(cls?' '+cls:'')+'">'+out+'</div>';
+  }
 
   const $=(s,c=document)=>c.querySelector(s);
   const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
@@ -123,7 +145,7 @@
       '<div class="foot-brand"><a href="index.html" class="wordmark">GIO<span>.</span></a><p>'+u.foot_about+'</p></div>'+
       '<div class="foot-col"><h4>'+u.foot_nav+'</h4><a href="index.html">'+u.nav[0][1]+'</a><a href="sobre.html">'+u.nav[1][1]+'</a><a href="carreira.html">'+u.nav[2][1]+'</a><a href="clubes.html">'+u.nav[3][1]+'</a></div>'+
       '<div class="foot-col"><h4>'+u.foot_more+'</h4><a href="gols.html">'+u.nav[4][1]+'</a><a href="fotos.html">'+u.nav[5][1]+'</a><a href="videos.html">'+u.nav[6][1]+'</a><a href="noticias.html">'+u.nav[7][1]+'</a></div>'+
-      '<div class="foot-col"><h4>'+u.foot_connect+'</h4><a href="contato.html">'+u.nav[8][1]+'</a><a href="mailto:'+D.contact.email+'">'+D.contact.email+'</a><a href="https://instagram.com/'+D.contact.instagram+'" target="_blank" rel="noopener">Instagram</a></div>'+
+      '<div class="foot-col"><h4>'+u.foot_connect+'</h4><a href="contato.html">'+u.nav[8][1]+'</a><a href="mailto:'+D.contact.email+'">'+D.contact.email+'</a>'+socials('foot-socials')+'</div>'+
       '</div><div class="foot-bottom"><span>© 2026 Gio Garbelini · <b>Play Bold</b></span><span>'+u.rights+'</span></div></div>';
 
     // events
@@ -152,8 +174,19 @@
   }
   function partnersBand(){
     const u=U();
-    return '<section class="partners-band"><div class="wrap inner"><div class="reveal"><div class="plabel">'+u.partners_label+'</div><div class="nike">NIKE</div></div>'+
-      '<div class="reveal"><h3>'+u.partners_h+'</h3><p>'+u.partners_p+'</p><div class="note">'+u.partners_note+'</div><div style="margin-top:26px"><a class="text-link" href="contato.html">'+u.cta+' <span class="ar">↗</span></a></div></div></div></section>';
+    const f=D.followers||{};
+    const ff=[['instagram','Instagram'],['tiktok','TikTok'],['x','X']].filter(([k])=>f[k]).map(([k,l])=>'<div class="ff"><b>'+f[k]+'</b><span>'+l+'</span></div>').join('');
+    const foll=(ff||f.combined)?'<div class="followers reveal">'+ff+(f.combined?'<div class="ff gold"><b>'+f.combined+'</b><span>'+u.combined_k+'</span></div>':'')+'</div>':'';
+    const logos=(D.partners||[]).map(p=>'<div class="partner"><div class="pn">'+p.name+'</div><div class="pr">'+T(p.role)+'</div></div>').join('');
+    return '<section class="partners-band"><div class="wrap">'+
+      '<div class="plabel reveal">'+u.partners_label+'</div>'+
+      '<h3 class="reveal">'+u.partners_h+'</h3>'+
+      '<p class="pmax reveal">'+u.partners_p+'</p>'+
+      foll+
+      '<div class="partners-row reveal">'+logos+'</div>'+
+      '<div class="note reveal">'+u.partners_note+'</div>'+
+      '<div class="reveal" style="margin-top:26px"><a class="text-link" href="contato.html">'+u.cta+' <span class="ar">↗</span></a></div>'+
+      '</div></section>';
   }
   function contactCTA(){
     const u=U();
@@ -270,20 +303,40 @@
       '<section class="section"><div class="wrap"><div class="grid-3">'+newsCards(D.news)+'</div></div></section>'+ contactCTA();
   };
 
+  function contactForm(){
+    const u=U();
+    const opts=u.contact_chips.map(c=>'<option>'+c+'</option>').join('');
+    return '<form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform" id="cform">'+
+      '<input type="hidden" name="form-name" value="contato" />'+
+      '<p class="hp"><label>'+(LANG==='pt'?'Não preencha':'Do not fill')+' <input name="bot-field" /></label></p>'+
+      '<label class="fl"><span>'+u.f_name+'</span><input name="name" required></label>'+
+      '<label class="fl"><span>'+u.f_company+'</span><input name="company"></label>'+
+      '<label class="fl"><span>'+u.f_email+'</span><input type="email" name="email" required></label>'+
+      '<label class="fl"><span>'+u.f_type+'</span><select name="type">'+opts+'</select></label>'+
+      '<label class="fl"><span>'+u.f_msg+'</span><textarea name="message" rows="4" required></textarea></label>'+
+      '<button type="submit" class="btn btn-gold">'+u.f_send+'</button>'+
+      '<div class="fmsg" id="fmsg" role="status"></div>'+
+      '</form>';
+  }
+
   R.contato=()=>{
     const u=U();
-    const domain=D.contact.email.split('@')[1];
-    const media='media@'+domain, partners='partnerships@'+domain;
+    const gen=D.contact.email, brands=D.contact.partnerships||D.contact.email;
     return pageHero(u.p_contact)+
-      '<section class="section"><div class="wrap" style="max-width:900px"><div class="chips" style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px">'+
-      u.contact_chips.map(c=>'<span class="chip" style="border:1px solid var(--line-l);border-radius:999px;padding:8px 15px;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:#4a473f">'+c+'</span>').join('')+'</div>'+
-      '<a style="display:inline-block;font-weight:900;letter-spacing:-.03em;font-size:clamp(1.4rem,4.5vw,2.7rem);border-bottom:2px solid var(--ink);padding-bottom:8px;word-break:break-word" href="mailto:'+D.contact.email+'">'+D.contact.email+'</a>'+
-      '<div class="contact-lines">'+
-        '<div class="cl"><div class="k">'+u.general_k+'</div><a href="mailto:'+media+'">'+media+'</a></div>'+
-        '<div class="cl"><div class="k">'+u.brands_k+'</div><a href="mailto:'+partners+'">'+partners+'</a></div>'+
-        '<div class="cl"><div class="k">'+u.ig_k+'</div><a href="https://instagram.com/'+D.contact.instagram+'" target="_blank" rel="noopener">@'+D.contact.instagram+'</a></div>'+
-        '<div class="cl"><div class="k">'+u.based_k+'</div><span class="v">'+T(D.contact.locations)+'</span></div>'+
-      '</div></div></section>';
+      '<section class="section"><div class="wrap contact-wrap">'+
+        '<div class="contact-left">'+
+          '<div class="chips">'+u.contact_chips.map(c=>'<span class="chip">'+c+'</span>').join('')+'</div>'+
+          '<a class="contact-mail" href="mailto:'+gen+'">'+gen+'</a>'+
+          '<div class="contact-lines">'+
+            '<div class="cl"><div class="k">'+u.general_k+'</div><a href="mailto:'+gen+'">'+gen+'</a></div>'+
+            '<div class="cl"><div class="k">'+u.brands_k+'</div><a href="mailto:'+brands+'">'+brands+'</a></div>'+
+            '<div class="cl"><div class="k">'+u.ig_k+'</div><a href="https://instagram.com/'+D.contact.instagram+'" target="_blank" rel="noopener">@'+D.contact.instagram+'</a></div>'+
+            '<div class="cl"><div class="k">'+u.based_k+'</div><span class="v">'+T(D.contact.locations)+'</span></div>'+
+          '</div>'+
+          '<div style="margin-top:28px">'+socials('big-socials')+'</div>'+
+        '</div>'+
+        '<div class="contact-right">'+contactForm()+'</div>'+
+      '</div></section>';
   };
 
   /* ---------- Filters ---------- */
@@ -296,12 +349,26 @@
   let io;
   function reveals(){ if(io)io.disconnect(); io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.1}); $$('.reveal').forEach(el=>io.observe(el)); }
 
+  /* ---------- Formulario de contato (Netlify Forms) ---------- */
+  function bindForm(){
+    const f=$('#cform'); if(!f) return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      const btn=f.querySelector('button[type=submit]'); if(btn) btn.disabled=true;
+      const body=new URLSearchParams(new FormData(f)).toString();
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+        .then(r=>{ const m=$('#fmsg'); if(m){ m.textContent=U().f_ok; m.className='fmsg ok'; } f.reset(); })
+        .catch(()=>{ const m=$('#fmsg'); if(m){ m.textContent=U().f_err; m.className='fmsg err'; } })
+        .finally(()=>{ if(btn) btn.disabled=false; });
+    });
+  }
+
   /* ---------- Render everything ---------- */
   function renderAll(){
     document.documentElement.lang=LANG;
     chrome();
     const main=$('#main'); if(main && R[page]) main.innerHTML=R[page]();
-    bindVideos(document); bindFilters(); reveals();
+    bindVideos(document); bindFilters(); bindForm(); reveals();
   }
 
   addEventListener('scroll',()=>{ $('#site-header').classList.toggle('solid',scrollY>50); },{passive:true});

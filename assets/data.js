@@ -18,36 +18,49 @@ window.DATA = {
 
   /* ---- Info de contato (aparece no rodape e na pagina de contato) ---- */
   contact:{
-    email:'contact@giogarbelini.com',
+    email:'press@giogarbelini.com',        // geral / imprensa
+    partnerships:'brands@giogarbelini.com', // parcerias e marcas
     instagram:'gio.garbelini',
+    tiktok:'gio.garbelini',
+    x:'giogarbelini',
     locations:{ en:'Madrid · São Paulo · Worldwide', pt:'Madri · São Paulo · Mundo' }
   },
 
+  /* ---- Seguidores nas redes (atualize os numeros quando mudarem) ---- */
+  followers:{ instagram:'564K', tiktok:'829K', x:'200K', combined:'1.5M+' },
+
+  /* ---- Patrocinadores e parceiros (aparecem na home) ---- */
+  partners:[
+    {name:'Nike',        role:{en:'Kit sponsor',pt:'Material esportivo'}},
+    {name:'Volkswagen',  role:{en:'Mobility partner',pt:'Parceira de mobilidade'}},
+    {name:'PlayStation', role:{en:'Gaming partner',pt:'Parceira de games'}}
+  ],
+
   /* ---- Numeros de destaque (home). Marcos verificados, nao envelhecem rapido ---- */
   numbers:[
-    {v:'2×', en:'Copa América<br>Champion', pt:'Campeã da<br>Copa América'},
-    {v:'30+', en:'Brazil senior<br>appearances', pt:'Jogos pela<br>Seleção'},
-    {v:'15', en:'Professional<br>debut age', pt:'Idade da<br>estreia'},
-    {v:'18', en:'Atlético de Madrid<br>shirt number', pt:'Camisa no<br>Atlético'}
+    {v:'200+', en:'Career<br>appearances', pt:'Jogos na<br>carreira'},
+    {v:'52', en:'Career<br>goals', pt:'Gols na<br>carreira'},
+    {v:'18', en:'Career<br>assists', pt:'Assistências<br>na carreira'},
+    {v:'2×', en:'Copa América<br>Champion', pt:'Campeã da<br>Copa América'}
   ],
 
   /* ---- Carreira (paginas Carreira e Clubes) ---- */
   career:[
     {years:{en:'2024 to now',pt:'2024 até hoje'}, club:'Atlético de Madrid', place:{en:'Madrid, Spain',pt:'Madri, Espanha'}, img:'assets/fotos/gio-atletico-strike.jpg',
-     note:{en:'A return to where the European story began. Liga F Player of the Month in March 2025.',
-           pt:'A volta ao lugar onde a história europeia começou. Melhor da Liga F em março de 2025.'}},
+     note:{en:'A return to where the European story began. Debut goal vs Granada and Liga F Player of the Month in March 2025.',
+           pt:'A volta ao lugar onde a história europeia começou. Gol de estreia contra o Granada e melhor da Liga F em março de 2025.'}},
     {years:{en:'Jan to Jun 2024',pt:'Jan a Jun 2024'}, club:'Madrid CFF', place:{en:'Madrid, Spain',pt:'Madri, Espanha'},
-     note:{en:'Nine goals in sixteen matches, a decisive return to Liga F.',
-           pt:'Nove gols em dezesseis jogos, um retorno decisivo à Liga F.'}},
+     note:{en:'Nine goals in sixteen matches, with a hat-trick vs Villarreal and braces against Valencia and Real Sociedad.',
+           pt:'Nove gols em dezesseis jogos, com hat-trick contra o Villarreal e dois gols contra Valencia e Real Sociedad.'}},
     {years:{en:'2022 to 2024',pt:'2022 a 2024'}, club:'Arsenal WFC', place:{en:'London, England',pt:'Londres, Inglaterra'}, img:'assets/fotos/gio-arsenal-jogo.jpg',
-     note:{en:'A formative chapter in the English game, including a loan spell at Everton.',
-           pt:'Um capítulo formador no futebol inglês, incluindo empréstimo ao Everton.'}},
+     note:{en:'A formative chapter in the English game, with an FA Cup debut in January 2023 and a loan at Everton, scoring against Tottenham.',
+           pt:'Um capítulo formador no futebol inglês, com estreia na FA Cup em janeiro de 2023 e empréstimo ao Everton, marcando contra o Tottenham.'}},
     {years:{en:'2022 to 2023',pt:'2022 a 2023'}, club:'Everton WFC', place:{en:'Liverpool, England',pt:'Liverpool, Inglaterra'},
      note:{en:'Women’s Super League experience and a first goal against Tottenham.',
            pt:'Experiência na Women’s Super League e o primeiro gol contra o Tottenham.'}},
     {years:{en:'2021 to 2022',pt:'2021 a 2022'}, club:'Levante UD', place:{en:'Valencia, Spain',pt:'Valência, Espanha'},
-     note:{en:'Seven goals and a match-winning European qualifying performance.',
-           pt:'Sete gols e uma atuação decisiva na fase europeia.'}},
+     note:{en:'Seven goals, including a match-winning brace against Rosenborg in extra time in European qualifying.',
+           pt:'Sete gols, com dois decisivos contra o Rosenborg na prorrogação da fase europeia.'}},
     {years:{en:'2020 to 2022',pt:'2020 a 2022'}, club:'FC Barcelona', place:{en:'Barcelona, Spain',pt:'Barcelona, Espanha'}, img:'assets/fotos/gio-barca-estudio.jpg',
      note:{en:'League and UEFA Women’s Champions League winner in 2020-21, inside one of the world’s elite environments.',
            pt:'Campeã da liga e da Liga dos Campeões Feminina em 2020-21, em um dos ambientes de elite do mundo.'}},
