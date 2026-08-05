@@ -1,0 +1,148 @@
+{
+  "items": [
+    {
+      "img": "assets/fotos/gio-atletico-duelo.jpg",
+      "cat": "action",
+      "layout": "wide",
+      "label": {
+        "en": "Atlético · Liga F",
+        "pt": "Atlético · Liga F"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-selecao-corrida.jpg",
+      "cat": "brazil",
+      "layout": "tall",
+      "label": {
+        "en": "Seleção Brasileira",
+        "pt": "Seleção Brasileira"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-selecao-comemora.jpg",
+      "cat": "brazil",
+      "layout": "",
+      "label": {
+        "en": "Celebration",
+        "pt": "Comemoração"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-barca-estudio.jpg",
+      "cat": "portrait",
+      "layout": "tall",
+      "label": {
+        "en": "FC Barcelona",
+        "pt": "FC Barcelona"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-atletico-celebra.jpg",
+      "cat": "atletico",
+      "layout": "wide",
+      "label": {
+        "en": "Atlético de Madrid",
+        "pt": "Atlético de Madrid"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-selecao-retrato.jpg",
+      "cat": "portrait",
+      "layout": "tall",
+      "label": {
+        "en": "Seleção Brasileira",
+        "pt": "Seleção Brasileira"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-copa-america.jpg",
+      "cat": "campaign",
+      "layout": "tall",
+      "label": {
+        "en": "Copa América 2025",
+        "pt": "Copa América 2025"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-atletico-treino.jpg",
+      "cat": "behind",
+      "layout": "",
+      "label": {
+        "en": "Behind the scenes",
+        "pt": "Bastidores"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-barca-hoodie.jpg",
+      "cat": "behind",
+      "layout": "wide",
+      "label": {
+        "en": "Behind the scenes",
+        "pt": "Bastidores"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-arsenal-retrato.jpg",
+      "cat": "portrait",
+      "layout": "tall",
+      "label": {
+        "en": "Arsenal WFC",
+        "pt": "Arsenal WFC"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-selecao-azul.jpg",
+      "cat": "brazil",
+      "layout": "",
+      "label": {
+        "en": "Seleção Brasileira",
+        "pt": "Seleção Brasileira"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-atletico-estudio.jpg",
+      "cat": "campaign",
+      "layout": "",
+      "label": {
+        "en": "Studio",
+        "pt": "Estúdio"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-atletico-strike.jpg",
+      "cat": "action",
+      "layout": "wide",
+      "label": {
+        "en": "Atlético · Liga F",
+        "pt": "Atlético · Liga F"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-arsenal-jogo.jpg",
+      "cat": "action",
+      "layout": "",
+      "label": {
+        "en": "Arsenal · WSL",
+        "pt": "Arsenal · WSL"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-atletico-run.jpg",
+      "cat": "action",
+      "layout": "wide",
+      "label": {
+        "en": "Atlético de Madrid",
+        "pt": "Atlético de Madrid"
+      }
+    },
+    {
+      "img": "assets/fotos/gio-selecao-treino.jpg",
+      "cat": "behind",
+      "layout": "",
+      "label": {
+        "en": "Training",
+        "pt": "Treino"
+      }
+    }
+  ]
+}

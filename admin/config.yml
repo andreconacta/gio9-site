@@ -1,0 +1,179 @@
+# ============================================================================
+# Painel de conteudo da Gio (Decap CMS)
+# O campo "repo" abaixo sera preenchido quando criarmos o repositorio no GitHub.
+# ============================================================================
+backend:
+  name: github
+  repo: andreconacta/gio9-site
+  branch: main
+
+# Idioma do painel
+locale: 'pt'
+
+# Onde as fotos enviadas pelo painel sao guardadas
+media_folder: "assets/fotos"
+public_folder: "assets/fotos"
+
+# Mensagem de commit amigavel
+site_url: https://gio9.com
+display_url: https://gio9.com
+
+collections:
+  # ---------------- NOTICIAS ----------------
+  - name: "noticias"
+    label: "Notícias"
+    delete: false
+    files:
+      - name: "noticias"
+        label: "Lista de notícias"
+        file: "assets/content/news.json"
+        description: "A notícia mais nova deve ficar no topo da lista."
+        fields:
+          - name: "items"
+            label: "Notícias"
+            label_singular: "Notícia"
+            widget: "list"
+            summary: "{{fields.title.pt}}"
+            fields:
+              - name: "title"
+                label: "Título"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "date"
+                label: "Data"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português (ex.: Agosto de 2025)", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "tag"
+                label: "Categoria/etiqueta"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português (ex.: Seleção Brasileira)", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "excerpt"
+                label: "Resumo"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "pt", label: "Português", widget: "text", required: false }
+                  - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
+              - { name: "url", label: "Link da matéria (opcional)", widget: "string", required: false }
+
+  # ---------------- GOLS ----------------
+  - name: "gols"
+    label: "Gols"
+    delete: false
+    files:
+      - name: "gols"
+        label: "Lista de gols"
+        file: "assets/content/goals.json"
+        fields:
+          - name: "items"
+            label: "Gols"
+            label_singular: "Gol"
+            widget: "list"
+            summary: "{{fields.title.pt}}"
+            fields:
+              - name: "title"
+                label: "Título"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "date"
+                label: "Data"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português (ex.: Ago 2024)", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "cat"
+                label: "Categoria"
+                widget: "select"
+                options:
+                  - { label: "Brasil", value: "brazil" }
+                  - { label: "Atlético", value: "atletico" }
+                  - { label: "Madrid CFF", value: "madridcff" }
+                  - { label: "Inglaterra", value: "england" }
+              - { name: "yt", label: "ID do vídeo no YouTube (opcional, a parte depois de watch?v=)", widget: "string", required: false }
+
+  # ---------------- VIDEOS ----------------
+  - name: "videos"
+    label: "Vídeos"
+    delete: false
+    files:
+      - name: "videos"
+        label: "Lista de vídeos"
+        file: "assets/content/videos.json"
+        fields:
+          - name: "items"
+            label: "Vídeos"
+            label_singular: "Vídeo"
+            widget: "list"
+            summary: "{{fields.title.pt}}"
+            fields:
+              - name: "title"
+                label: "Título"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "tag"
+                label: "Etiqueta (ex.: Atlético de Madrid)"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - { name: "id", label: "ID do YouTube (a parte depois de watch?v=)", widget: "string" }
+              - name: "cat"
+                label: "Categoria (para filtro)"
+                widget: "select"
+                required: false
+                options:
+                  - { label: "Brasil", value: "brazil" }
+                  - { label: "Atlético", value: "atletico" }
+                  - { label: "Madrid CFF", value: "madridcff" }
+                  - { label: "Melhores momentos", value: "highlights" }
+
+  # ---------------- FOTOS ----------------
+  - name: "fotos"
+    label: "Fotos"
+    delete: false
+    files:
+      - name: "fotos"
+        label: "Galeria de fotos"
+        file: "assets/content/photos.json"
+        fields:
+          - name: "items"
+            label: "Fotos"
+            label_singular: "Foto"
+            widget: "list"
+            summary: "{{fields.label.pt}}"
+            fields:
+              - { name: "img", label: "Foto (enviar imagem)", widget: "image" }
+              - name: "label"
+                label: "Legenda"
+                widget: "object"
+                fields:
+                  - { name: "pt", label: "Português", widget: "string" }
+                  - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+              - name: "cat"
+                label: "Categoria"
+                widget: "select"
+                options:
+                  - { label: "Atlético", value: "atletico" }
+                  - { label: "Brasil", value: "brazil" }
+                  - { label: "Ação de jogo", value: "action" }
+                  - { label: "Retrato", value: "portrait" }
+                  - { label: "Campanha", value: "campaign" }
+                  - { label: "Bastidores", value: "behind" }
+              - name: "layout"
+                label: "Formato na galeria"
+                widget: "select"
+                default: ""
+                options:
+                  - { label: "Normal", value: "" }
+                  - { label: "Largo (ocupa 2 colunas)", value: "wide" }
+                  - { label: "Alto (retrato)", value: "tall" }
