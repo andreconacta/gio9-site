@@ -10,11 +10,12 @@
         "en": "Madrid, Spain",
         "pt": "Madri, Espanha"
       },
-      "img": "assets/fotos/gio-atletico-run.jpg",
+      "img": "assets/fotos/gio-atletico-strike.jpg",
       "note": {
         "en": "A return to where the European story began. Debut goal vs Granada and Liga F Player of the Month in March 2025.",
         "pt": "A volta ao lugar onde a história europeia começou. Gol de estreia contra o Granada e melhor da Liga F em março de 2025."
-      }
+      },
+      "na_home": true
     },
     {
       "years": {
@@ -29,7 +30,8 @@
       "note": {
         "en": "Nine goals in sixteen matches, with a hat-trick vs Villarreal and braces against Valencia and Real Sociedad.",
         "pt": "Nove gols em dezesseis jogos, com hat-trick contra o Villarreal e dois gols contra Valencia e Real Sociedad."
-      }
+      },
+      "na_home": false
     },
     {
       "years": {
@@ -45,7 +47,8 @@
       "note": {
         "en": "A formative chapter in the English game, with an FA Cup debut in January 2023 and a loan at Everton, scoring against Tottenham.",
         "pt": "Um capítulo formador no futebol inglês, com estreia na FA Cup em janeiro de 2023 e empréstimo ao Everton, marcando contra o Tottenham."
-      }
+      },
+      "na_home": true
     },
     {
       "years": {
@@ -60,7 +63,8 @@
       "note": {
         "en": "Women’s Super League experience and a first goal against Tottenham.",
         "pt": "Experiência na Women’s Super League e o primeiro gol contra o Tottenham."
-      }
+      },
+      "na_home": false
     },
     {
       "years": {
@@ -76,7 +80,7 @@
         "en": "Seven goals, including a match-winning brace against Rosenborg in extra time in European qualifying.",
         "pt": "Sete gols, com dois decisivos contra o Rosenborg na prorrogação da fase europeia."
       },
-      "img": "assets/fotos/levante.jpeg"
+      "na_home": false
     },
     {
       "years": {
@@ -92,7 +96,8 @@
       "note": {
         "en": "League and UEFA Women’s Champions League winner in 2020-21, inside one of the world’s elite environments.",
         "pt": "Campeã da liga e da Liga dos Campeões Feminina em 2020-21, em um dos ambientes de elite do mundo."
-      }
+      },
+      "na_home": true
     },
     {
       "years": {
@@ -107,7 +112,8 @@
       "note": {
         "en": "Professional debut at fifteen, the beginning of the senior journey.",
         "pt": "Estreia profissional aos quinze, o começo da jornada entre profissionais."
-      }
+      },
+      "na_home": true
     }
   ]
 }

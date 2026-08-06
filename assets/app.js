@@ -273,7 +273,7 @@
 
       numbersBand()+
 
-      '<section class="section dark"><div class="wrap"><div class="sec-top"><div><div class="section-label"><span>02</span>'+u.career_label+'</div><h2 class="sec-h reveal">'+u.career_h+'</h2></div><a class="text-link light reveal" href="carreira.html">'+u.career_link+' <span class="ar">↗</span></a></div>'+timeline(D.career.slice(0,4))+'</div></section>'+
+      '<section class="section dark"><div class="wrap"><div class="sec-top"><div><div class="section-label"><span>02</span>'+u.career_label+'</div><h2 class="sec-h reveal">'+u.career_h+'</h2></div><a class="text-link light reveal" href="carreira.html">'+u.career_link+' <span class="ar">↗</span></a></div>'+timeline((D.career.filter(c=>c.na_home).length?D.career.filter(c=>c.na_home):D.career.slice(0,4)))+'<div class="reveal" style="margin-top:34px"><a class="text-link light" href="carreira.html">'+u.career_link+' <span class="ar">↗</span></a></div></div></section>'+
 
       '<section class="section ink"><div class="wrap"><div class="section-label"><span>03</span>'+u.brazil_label+'</div>'+
         '<div class="brazil-split">'+

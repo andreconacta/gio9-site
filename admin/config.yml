@@ -218,6 +218,7 @@ collections:
                   - { name: "pt", label: "Português", widget: "text", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
               - { name: "img", label: "Foto do clube (opcional)", widget: "image", required: false }
+              - { name: "na_home", label: "Mostrar na página inicial (só clubes de contrato)", widget: "boolean", default: false, required: false }
 
   # ---------------- TITULOS E PREMIOS ----------------
   - name: "titulos"
