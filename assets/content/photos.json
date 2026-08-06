@@ -34,7 +34,7 @@
     },
     {
       "img": "assets/fotos/gio-barca-estudio.jpg",
-      "cat": "portrait",
+      "cat": "behind",
       "layout": "tall",
       "label": {
         "en": "FC Barcelona",
@@ -64,7 +64,7 @@
     },
     {
       "img": "assets/fotos/gio-copa-america.jpg",
-      "cat": "campaign",
+      "cat": "brazil",
       "layout": "tall",
       "label": {
         "en": "Copa América 2025",
@@ -94,7 +94,7 @@
     },
     {
       "img": "assets/fotos/gio-arsenal-retrato.jpg",
-      "cat": "portrait",
+      "cat": "behind",
       "layout": "tall",
       "label": {
         "en": "Arsenal WFC",
@@ -114,7 +114,7 @@
     },
     {
       "img": "assets/fotos/gio-atletico-estudio.jpg",
-      "cat": "campaign",
+      "cat": "behind",
       "layout": "",
       "label": {
         "en": "Studio",
