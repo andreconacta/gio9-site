@@ -178,32 +178,6 @@ collections:
                   - { label: "Retrato", value: "portrait" }
                   - { label: "Campanha", value: "campaign" }
                   - { label: "Bastidores", value: "behind" }
-              - name: "layout"
-                label: "Formato na galeria"
-                widget: "select"
-                required: false
-                default: ""
-                options:
-                  - { label: "Normal", value: "" }
-                  - { label: "Largo (ocupa 2 colunas)", value: "wide" }
-                  - { label: "Alto (retrato)", value: "tall" }
-              - name: "fx"
-                label: "Enquadramento horizontal (0 = esquerda, 100 = direita)"
-                widget: "number"
-                value_type: "int"
-                min: 0
-                max: 100
-                step: 5
-                required: false
-                hint: "Veja a pré-visualização ao lado. Clique na foto para descobrir os números certos."
-              - name: "fy"
-                label: "Enquadramento vertical (0 = topo/rosto, 100 = base)"
-                widget: "number"
-                value_type: "int"
-                min: 0
-                max: 100
-                step: 5
-                required: false
 
   # ---------------- CARREIRA / CLUBES ----------------
   - name: "carreira"
@@ -244,23 +218,6 @@ collections:
                   - { name: "pt", label: "Português", widget: "text", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
               - { name: "img", label: "Foto do clube (opcional)", widget: "image", required: false }
-              - name: "fx"
-                label: "Enquadramento horizontal (0 = esquerda, 100 = direita)"
-                widget: "number"
-                value_type: "int"
-                min: 0
-                max: 100
-                step: 5
-                required: false
-                hint: "Veja a pré-visualização ao lado. Clique na foto para descobrir os números certos."
-              - name: "fy"
-                label: "Enquadramento vertical (0 = topo/rosto, 100 = base)"
-                widget: "number"
-                value_type: "int"
-                min: 0
-                max: 100
-                step: 5
-                required: false
 
   # ---------------- TITULOS E PREMIOS ----------------
   - name: "titulos"
@@ -378,6 +335,91 @@ collections:
                 fields:
                   - { name: "pt", label: "Português", widget: "string", required: false }
                   - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
-          - { name: "heroImage", label: "Foto do topo (início)", widget: "image", required: false }
-          - { name: "brazilImage", label: "Foto da seção Brasil (início)", widget: "image", required: false }
+
+  # ---------------- PAGINA INICIAL (textos e fotos) ----------------
+  - name: "inicio"
+    label: "Início (textos e fotos)"
+    delete: false
+    files:
+      - name: "inicio"
+        label: "Textos e fotos da página inicial"
+        file: "assets/content/home.json"
+        description: "Para deixar uma palavra em dourado, coloque *asteriscos* em volta dela. Ex.: cruza *fronteiras.*"
+        fields:
+          - { name: "heroImage", label: "Foto do topo", widget: "image", required: false }
+          - { name: "brazilImage", label: "Foto da seção Brasil", widget: "image", required: false }
+          - name: "hero_eyebrow"
+            label: "Linha acima do título (topo)"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "string", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+          - name: "hero_intro"
+            label: "Frase de abertura (topo)"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "text", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
+          - name: "story_h"
+            label: "Título da seção 'A história'"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "string", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+          - name: "story_p"
+            label: "Texto da seção 'A história'"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "text", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
+          - name: "brazil_h"
+            label: "Título da seção 'Brasil'"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "string", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "string", required: false }
+          - name: "brazil_p"
+            label: "Texto da seção 'Brasil'"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "text", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
+
+  # ---------------- PAGINA SOBRE (textos e foto) ----------------
+  - name: "sobre"
+    label: "Sobre (textos e foto)"
+    delete: false
+    files:
+      - name: "sobre"
+        label: "Textos e foto da página Sobre"
+        file: "assets/content/about.json"
+        description: "Para deixar uma palavra em dourado, coloque *asteriscos* em volta dela."
+        fields:
           - { name: "aboutImage", label: "Foto da página Sobre", widget: "image", required: false }
+          - name: "lead"
+            label: "Frase de destaque (abertura)"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "text", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
+          - name: "p1"
+            label: "Primeiro parágrafo"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "text", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }
+          - name: "p2"
+            label: "Segundo parágrafo"
+            widget: "object"
+            required: false
+            fields:
+              - { name: "pt", label: "Português", widget: "text", required: false }
+              - { name: "en", label: "Inglês (opcional)", widget: "text", required: false }

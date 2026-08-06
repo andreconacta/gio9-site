@@ -121,6 +121,10 @@
   const $=(s,c=document)=>c.querySelector(s);
   const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
   const T=o=>o==null?'':(typeof o==='string'?o:(o[LANG]||o.en||o.pt||''));
+  /* Converte *palavra* em destaque dourado e quebra de linha simples. Uso nos textos editaveis. */
+  const fmt=s=>String(s==null?'':s).replace(/\*([^*]+)\*/g,'<span class="serif">$1</span>').replace(/\n/g,'<br>');
+  /* Pega texto do painel (obj {pt,en}) com destaque; se vazio, usa o padrao fixo. */
+  const TX=(o,fb)=>{ const v=(o&&(o[LANG]||o.en||o.pt)); return (v&&String(v).trim())?fmt(v):fb; };
   const page=document.body.getAttribute('data-page')||'home';
   const U=()=>UI[LANG];
 
@@ -242,17 +246,18 @@
   const R={};
   R.home=()=>{
     const u=U();
+    const H=D.homeText||{};
     return (
       '<section class="hero"><div class="hero-ph" id="heroPh"'+(D.heroImage?' style="background-image:url(\''+D.heroImage+'\')"':'')+'></div>'+
-        '<div class="wrap hero-inner"><p class="eyebrow reveal">'+u.hero_eyebrow+'</p>'+
+        '<div class="wrap hero-inner"><p class="eyebrow reveal">'+TX(H.hero_eyebrow,u.hero_eyebrow)+'</p>'+
         '<h1 class="reveal">PLAY<span class="serif">BOLD.</span></h1>'+
-        '<p class="intro reveal">'+u.hero_intro+'</p>'+
+        '<p class="intro reveal">'+TX(H.hero_intro,u.hero_intro)+'</p>'+
         '<div class="cta-row reveal"><a class="btn btn-gold" href="videos.html">'+u.watch+' ↗</a><a class="btn btn-ghost" href="contato.html">'+u.cta+'</a></div></div></section>'+
 
       '<section class="section"><div class="wrap"><div class="section-label reveal"><span>01</span>'+u.man_label+'</div>'+
         '<p class="reveal" style="text-transform:uppercase;letter-spacing:.14em;font-size:.85rem;font-weight:600;margin-bottom:30px;color:var(--muted)">'+u.man_kicker+'</p>'+
-        '<h2 class="sec-h reveal">'+u.man_h+'</h2>'+
-        '<div style="max-width:640px;margin-top:26px"><p class="reveal" style="font-size:1.1rem;line-height:1.8;color:#33312c">'+u.man_p+'</p>'+
+        '<h2 class="sec-h reveal">'+TX(H.story_h,u.man_h)+'</h2>'+
+        '<div style="max-width:640px;margin-top:26px"><p class="reveal" style="font-size:1.1rem;line-height:1.8;color:#33312c">'+TX(H.story_p,u.man_p)+'</p>'+
         '<div class="reveal" style="margin-top:26px"><a class="text-link" href="sobre.html">'+u.man_link+' <span class="ar">↗</span></a></div></div></div></section>'+
 
       numbersBand()+
@@ -261,7 +266,7 @@
 
       '<section class="section ink"><div class="wrap"><div class="section-label"><span>03</span>'+u.brazil_label+'</div>'+
         '<div class="brazil-split">'+
-          '<div><h2 class="sec-h reveal">'+u.brazil_h+'</h2><p class="sec-intro reveal">'+u.brazil_p+'</p></div>'+
+          '<div><h2 class="sec-h reveal">'+TX(H.brazil_h,u.brazil_h)+'</h2><p class="sec-intro reveal">'+TX(H.brazil_p,u.brazil_p)+'</p></div>'+
           (D.brazilImage?'<div class="brazil-photo reveal"><img src="'+D.brazilImage+'" alt="Gio Garbelini, Seleção Brasileira" loading="lazy" onerror="this.style.display=\'none\'"></div>':'')+
         '</div>'+
         '<div class="reveal" style="margin-top:44px">'+honoursGrid()+'</div></div></section>'+
@@ -274,9 +279,10 @@
 
   R.sobre=()=>{
     const u=U();
+    const A=D.aboutText||{};
     const portrait = D.aboutImage?'<div class="about-portrait reveal"><img src="'+D.aboutImage+'" alt="Gio Garbelini" loading="lazy" onerror="this.style.display=\'none\'"></div>':'';
     return pageHero(u.p_about)+
-      '<section class="section"><div class="wrap"><div class="about-split"><div class="prose"><p class="lead reveal">'+u.about_lead+'</p><p class="reveal">'+u.about_p1+'</p><p class="reveal">'+u.about_p2+'</p></div>'+portrait+'</div>'+
+      '<section class="section"><div class="wrap"><div class="about-split"><div class="prose"><p class="lead reveal">'+TX(A.lead,u.about_lead)+'</p><p class="reveal">'+TX(A.p1,u.about_p1)+'</p><p class="reveal">'+TX(A.p2,u.about_p2)+'</p></div>'+portrait+'</div>'+
       '<div class="reveal" style="margin-top:50px"><div class="section-label"><span>·</span>'+u.about_facts_h+'</div><div class="facts">'+D.facts.map(f=>'<div class="f"><div class="k">'+T(f.k)+'</div><div class="v">'+T(f.v)+'</div></div>').join('')+'</div></div></div></section>'+
       numbersBand()+ contactCTA();
   };
@@ -289,22 +295,18 @@
       contactCTA();
   };
 
-  /* Enquadramento da foto: usa fx/fy (0 a 100) do painel; cai para pos antigo; senao usa padrao. */
-  function focalOP(o,defY){
-    const map={top:'6%',center:'50%',bottom:'92%'};
-    const hx=(typeof o.fx==='number')?o.fx+'%':'50%';
-    let vy;
-    if(typeof o.fy==='number') vy=o.fy+'%';
-    else if(o.pos&&map[o.pos]) vy=map[o.pos];
-    else vy=defY;
-    return hx+' '+vy;
+  /* Ajuste inteligente do recorte: detecta se a foto e vertical ou horizontal e posiciona sozinho. */
+  function smartThumbs(){
+    $$('.club-card .thumb img, .tile.fixed img').forEach(function(img){
+      function ap(){ if(!img.naturalWidth) return; img.style.objectPosition=(img.naturalHeight>img.naturalWidth*1.05)?'50% 12%':'50% 42%'; }
+      if(img.complete&&img.naturalWidth) ap(); else img.addEventListener('load',ap);
+    });
   }
 
   R.clubes=()=>{
     const u=U();
     const cards=D.career.map(c=>{
-      const op=focalOP(c,'20%');
-      const thumb=c.img?'<img src="'+c.img+'" alt="'+c.club+'" loading="lazy" style="object-position:'+op+'" onerror="this.style.display=\'none\'">':ph(c.club,false,true);
+      const thumb=c.img?'<img src="'+c.img+'" alt="'+c.club+'" loading="lazy" onerror="this.style.display=\'none\'">':ph(c.club,false,true);
       return '<div class="club-card reveal"><div class="thumb">'+thumb+'</div><div class="body"><div class="yr">'+T(c.years)+'</div><h3>'+c.club+'</h3><div class="place">'+T(c.place)+'</div><p>'+T(c.note)+'</p></div></div>';
     }).join('');
     return pageHero(u.p_clubs)+
@@ -326,9 +328,10 @@
     const u=U();
     const chips=D.photoCats.map((c,i)=>'<button data-f="'+c.key+'"'+(i===0?' class="on"':'')+'>'+T(c)+'</button>').join('');
     const tiles=D.photos.map(p=>{
-      const opf=focalOP(p,'25%');
-      const inner=p.img?'<img src="'+p.img+'" alt="'+T(p.label)+'" loading="lazy" style="height:100%;object-fit:cover;object-position:'+opf+'">':ph(T(p.label),false,true);
-      return '<figure class="tile ph '+(p.layout==='wide'?'wide':p.layout==='tall'?'tall':'')+'" data-cat="'+p.cat+'" style="'+(p.img?'background:none':'')+'">'+inner+'<span class="cap">'+T(p.label)+'</span></figure>';
+      if(p.img){
+        return '<figure class="tile" data-cat="'+p.cat+'"><img src="'+p.img+'" alt="'+T(p.label)+'" loading="lazy"><span class="cap">'+T(p.label)+'</span></figure>';
+      }
+      return '<figure class="tile ph" data-cat="'+p.cat+'">'+ph(T(p.label),false,true)+'<span class="cap">'+T(p.label)+'</span></figure>';
     }).join('');
     return pageHero(u.p_photos)+
       '<section class="section"><div class="wrap"><div class="filters" id="photoFilters">'+chips+'</div><div class="gallery-grid" id="photoGrid">'+tiles+'</div>'+
@@ -424,7 +427,7 @@
     document.documentElement.lang=LANG;
     chrome();
     const main=$('#main'); if(main && R[page]) main.innerHTML=R[page]();
-    bindVideos(document); bindFilters(); bindForm(); reveals();
+    bindVideos(document); bindFilters(); bindForm(); reveals(); smartThumbs();
   }
 
   addEventListener('scroll',()=>{ $('#site-header').classList.toggle('solid',scrollY>50); },{passive:true});
@@ -455,6 +458,23 @@
         if(j.brazilImage!=null) D.brazilImage=j.brazilImage;
         if(j.aboutImage!=null) D.aboutImage=j.aboutImage;
         changed=true;
+      } }
+    }catch(e){}
+    // Textos e fotos da pagina inicial
+    try{
+      const r=await fetch('assets/content/home.json',{cache:'no-store'});
+      if(r.ok){ const j=await r.json(); if(j){
+        if(j.heroImage!=null) D.heroImage=j.heroImage;
+        if(j.brazilImage!=null) D.brazilImage=j.brazilImage;
+        D.homeText=j; changed=true;
+      } }
+    }catch(e){}
+    // Textos e foto da pagina Sobre
+    try{
+      const r=await fetch('assets/content/about.json',{cache:'no-store'});
+      if(r.ok){ const j=await r.json(); if(j){
+        if(j.aboutImage!=null) D.aboutImage=j.aboutImage;
+        D.aboutText=j; changed=true;
       } }
     }catch(e){}
     return changed;
