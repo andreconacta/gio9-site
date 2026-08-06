@@ -31,6 +31,8 @@
       partners_note:'Selected collaborations and campaign work available on request.',
       contact_label:'Partnerships · Media · Appearances', contact_h:'Let’s make <span class="serif">an impact.</span>',
       contact_chips:['Sponsorship','Media & press','Interviews','Events','Ambassador','Content'],
+      cta2_label:'Press · Media · Interviews', cta2_h:'Let’s <span class="serif">talk.</span>',
+      cta2_chips:['Interviews','Media & press','Story requests','Credentials','Appearances'],
       general_k:'General / Press', brands_k:'Partnerships & brands', ig_k:'Instagram', based_k:'Based',
       /* page heroes */
       p_about:['About','Gio <span class="serif">Garbelini.</span>','From São Paulo to the world, the story of a Brazilian international forward.'],
@@ -75,6 +77,8 @@
       partners_note:'Colaborações selecionadas e trabalhos de campanha sob consulta.',
       contact_label:'Parcerias · Mídia · Aparições', contact_h:'Vamos causar <span class="serif">impacto.</span>',
       contact_chips:['Patrocínio','Mídia e imprensa','Entrevistas','Eventos','Embaixadora','Conteúdo'],
+      cta2_label:'Imprensa · Mídia · Entrevistas', cta2_h:'Vamos <span class="serif">conversar.</span>',
+      cta2_chips:['Entrevistas','Mídia e imprensa','Pautas','Credenciais','Aparições'],
       general_k:'Geral / Imprensa', brands_k:'Parcerias e marcas', ig_k:'Instagram', based_k:'Base',
       p_about:['Sobre','Gio <span class="serif">Garbelini.</span>','De São Paulo para o mundo, a história de uma atacante brasileira internacional.'],
       about_lead:'Nascida em São Paulo, formada entre Brasil, Flórida, Espanha e Inglaterra. A Gio <span class="serif">joga ousado.</span>',
@@ -136,7 +140,9 @@
   /* ---------- Header / footer / menu ---------- */
   function chrome(){
     const u=U();
-    const nav=u.nav.map(([h,l])=>'<a href="'+h+'"'+(h===currentFile()?' class="active"':'')+'>'+l+'</a>').join('');
+    const hrefPage=h=>{ const b=h.replace('.html',''); return b==='index'?'home':b; };
+    const isAct=h=>hrefPage(h)===page;
+    const nav=u.nav.map(([h,l])=>'<a href="'+h+'"'+(isAct(h)?' class="active"':'')+'>'+l+'</a>').join('');
     $('#site-header').innerHTML =
       '<a href="index.html" class="wordmark">GIO<span>.</span></a>'+
       '<nav>'+nav+'</nav>'+
@@ -145,7 +151,7 @@
         '<a href="contato.html" class="header-cta">'+u.cta+' <span>↗</span></a>'+
         '<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>'+
       '</div>';
-    $('#mobile-menu').innerHTML = u.nav.map(([h,l])=>'<a href="'+h+'">'+l+'</a>').join('')+'<a href="contato.html" style="color:var(--gold)">'+u.cta+' ↗</a>';
+    $('#mobile-menu').innerHTML = u.nav.map(([h,l])=>'<a href="'+h+'"'+(isAct(h)?' class="active"':'')+'>'+l+'</a>').join('')+'<a href="contato.html" style="color:var(--gold)">'+u.cta+' ↗</a>';
 
     $('#site-footer').innerHTML =
       '<div class="wrap"><div class="foot-top">'+
@@ -195,9 +201,14 @@
       '<div class="reveal" style="margin-top:26px"><a class="text-link" href="contato.html">'+u.cta+' <span class="ar">↗</span></a></div>'+
       '</div></section>';
   }
-  function contactCTA(){
+  function contactCTA(variant){
     const u=U();
-    return '<section class="contact-cta"><div class="wrap"><p class="eyebrow" style="color:var(--gold)">'+u.contact_label+'</p><div class="chips">'+u.contact_chips.map(c=>'<span class="chip">'+c+'</span>').join('')+'</div><h2>'+u.contact_h+'</h2><a class="mail" href="mailto:'+D.contact.email+'">'+D.contact.email+' <span>↗</span></a></div></section>';
+    const press = variant==='press';
+    const label = press ? u.cta2_label : u.contact_label;
+    const head  = press ? u.cta2_h : u.contact_h;
+    const chips = press ? u.cta2_chips : u.contact_chips;
+    const email = press ? D.contact.email : (D.contact.partnerships||D.contact.email);
+    return '<section class="contact-cta"><div class="wrap"><p class="eyebrow" style="color:var(--gold)">'+label+'</p><div class="chips">'+chips.map(c=>'<span class="chip">'+c+'</span>').join('')+'</div><h2>'+head+'</h2><a class="mail" href="mailto:'+email+'">'+email+' <span>↗</span></a></div></section>';
   }
   function videoCards(list){
     return '<div class="videos-grid">'+list.map(v=>'<div class="video-card reveal" data-id="'+v.id+'" data-ext="'+(v.external?'1':'')+'"><div class="v-frame"><img src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="'+T(v.title)+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="play"></div></div><div class="v-meta"><div class="tag">'+T(v.tag)+'</div><div class="ttl">'+T(v.title)+'</div></div></div>').join('')+'</div>';
@@ -303,11 +314,25 @@
     });
   }
 
+  function clubColor(name){
+    const n=(name||'').toLowerCase();
+    if(n.indexOf('atlétic')>=0||n.indexOf('atletic')>=0) return '#cb3524';
+    if(n.indexOf('arsenal')>=0) return '#ef0107';
+    if(n.indexOf('barcelona')>=0||n.indexOf('barça')>=0||n.indexOf('barca')>=0) return '#a50044';
+    if(n.indexOf('madrid cff')>=0) return '#1f5fbf';
+    if(n.indexOf('levante')>=0) return '#9b1d20';
+    if(n.indexOf('everton')>=0) return '#003399';
+    if(n.indexOf('tottenham')>=0) return '#132257';
+    if(n.indexOf('rosenborg')>=0) return '#00612c';
+    return 'var(--gold-deep)';
+  }
+
   R.clubes=()=>{
     const u=U();
     const cards=D.career.map(c=>{
+      const col=clubColor(c.club);
       const thumb=c.img?'<img src="'+c.img+'" alt="'+c.club+'" loading="lazy" onerror="this.style.display=\'none\'">':ph(c.club,false,true);
-      return '<div class="club-card reveal"><div class="thumb">'+thumb+'</div><div class="body"><div class="yr">'+T(c.years)+'</div><h3>'+c.club+'</h3><div class="place">'+T(c.place)+'</div><p>'+T(c.note)+'</p></div></div>';
+      return '<div class="club-card reveal" style="border-top:4px solid '+col+'"><div class="thumb">'+thumb+'</div><div class="body"><div class="yr" style="color:'+col+'">'+T(c.years)+'</div><h3>'+c.club+'</h3><div class="place">'+T(c.place)+'</div><p>'+T(c.note)+'</p></div></div>';
     }).join('');
     return pageHero(u.p_clubs)+
       '<section class="section"><div class="wrap"><div class="clubs-grid">'+cards+'</div></div></section>'+ contactCTA();
@@ -321,7 +346,7 @@
       return '<div class="video-card reveal" data-cat="'+g.cat+'" data-id="'+(g.yt||'')+'" data-ext="'+(g.external?'1':'')+'">'+thumb+'<div class="v-meta"><div class="tag">'+T(g.date)+'</div><div class="ttl">'+T(g.title)+'</div></div></div>';
     }).join('');
     return pageHero(u.p_goals)+
-      '<section class="section"><div class="wrap"><div class="filters" id="goalFilters">'+chips+'</div><div class="videos-grid" id="goalGrid">'+cards+'</div></div></section>'+ contactCTA();
+      '<section class="section"><div class="wrap"><div class="filters" id="goalFilters">'+chips+'</div><div class="videos-grid" id="goalGrid">'+cards+'</div></div></section>'+ contactCTA('press');
   };
 
   R.fotos=()=>{
@@ -335,19 +360,19 @@
     }).join('');
     return pageHero(u.p_photos)+
       '<section class="section"><div class="wrap"><div class="filters" id="photoFilters">'+chips+'</div><div class="gallery-grid" id="photoGrid">'+tiles+'</div>'+
-      '<p style="color:var(--muted);font-size:.82rem;margin-top:26px">'+u.photos_soon+'</p></div></section>'+ contactCTA();
+      '<p style="color:var(--muted);font-size:.82rem;margin-top:26px">'+u.photos_soon+'</p></div></section>'+ contactCTA('press');
   };
 
   R.videos=()=>{
     const u=U();
     return pageHero(u.p_videos)+
-      '<section class="section"><div class="wrap">'+videoCards(D.videos)+'</div></section>'+ contactCTA();
+      '<section class="section"><div class="wrap">'+videoCards(D.videos)+'</div></section>'+ contactCTA('press');
   };
 
   R.noticias=()=>{
     const u=U();
     return pageHero(u.p_news)+
-      '<section class="section"><div class="wrap"><div class="grid-3">'+newsCards(D.news)+'</div></div></section>'+ contactCTA();
+      '<section class="section"><div class="wrap"><div class="grid-3">'+newsCards(D.news)+'</div></div></section>'+ contactCTA('press');
   };
 
   function contactForm(){
