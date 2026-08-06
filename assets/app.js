@@ -411,8 +411,11 @@
 
   R.videos=()=>{
     const u=U();
+    const cats=(D.videoCats&&D.videoCats.length)?D.videoCats:[{key:'all',pt:'Todos',es:'Todos',en:'All'}];
+    const chips=cats.map((c,i)=>'<button data-f="'+c.key+'"'+(i===0?' class="on"':'')+'>'+T(c)+'</button>').join('');
+    const cards=D.videos.map(v=>'<div class="video-card reveal" data-cat="'+(v.cat||'')+'" data-id="'+v.id+'" data-ext="'+(v.external?'1':'')+'"><div class="v-frame"><img src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="'+T(v.title)+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="play"></div></div><div class="v-meta"><div class="tag">'+T(v.tag)+'</div><div class="ttl">'+T(v.title)+'</div></div></div>').join('');
     return pageHero(u.p_videos)+
-      '<section class="section"><div class="wrap">'+videoCards(D.videos)+'</div></section>'+ contactCTA('press');
+      '<section class="section"><div class="wrap"><div class="filters" id="videoFilters">'+chips+'</div><div class="videos-grid" id="videoGrid">'+cards+'</div></div></section>'+ contactCTA('press');
   };
 
   R.noticias=()=>{
@@ -463,6 +466,7 @@
   function bindFilters(){
     const gf=$('#goalFilters'); if(gf){ gf.onclick=e=>{ const b=e.target.closest('button'); if(!b)return; $$('button',gf).forEach(x=>x.classList.remove('on')); b.classList.add('on'); const f=b.dataset.f; $$('#goalGrid .video-card').forEach(c=>c.style.display=(f==='all'||c.dataset.cat===f)?'':'none'); }; }
     const pf=$('#photoFilters'); if(pf){ pf.onclick=e=>{ const b=e.target.closest('button'); if(!b)return; $$('button',pf).forEach(x=>x.classList.remove('on')); b.classList.add('on'); const f=b.dataset.f; $$('#photoGrid .tile').forEach(c=>c.style.display=(f==='all'||c.dataset.cat===f)?'':'none'); }; }
+    const vf=$('#videoFilters'); if(vf){ vf.onclick=e=>{ const b=e.target.closest('button'); if(!b)return; $$('button',vf).forEach(x=>x.classList.remove('on')); b.classList.add('on'); const f=b.dataset.f; $$('#videoGrid .video-card').forEach(c=>c.style.display=(f==='all'||c.dataset.cat===f)?'':'none'); }; }
   }
 
   /* ---------- Reveal ---------- */

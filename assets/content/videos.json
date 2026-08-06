@@ -4,11 +4,16 @@
       "external": false,
       "id": "FonMvA0kfrA",
       "title": {
-        "pt": "Comercial do novo Polo da VW com a Gio e o Fred"
+        "pt": "Comercial do novo Polo da VW com a Gio e o Fred",
+        "es": "Anuncio del nuevo Polo de VW con Gio y Fred",
+        "en": "New VW Polo commercial with Gio and Fred"
       },
       "tag": {
-        "pt": "CAMPANHAS"
-      }
+        "pt": "CAMPANHAS",
+        "es": "CAMPAÑAS",
+        "en": "CAMPAIGNS"
+      },
+      "cat": "bastidores"
     },
     {
       "external": false,
@@ -17,7 +22,8 @@
         "en": "Behind the scenes of Nike’s campaign for the launch of the new Brazilian National Team jersey",
         "es": "Detrás de cámaras de la campaña de Nike para el lanzamiento de la nueva camiseta de la Selección Brasileña"
       },
-      "id": "jUUJY4h9TH8"
+      "id": "jUUJY4h9TH8",
+      "cat": "bastidores"
     },
     {
       "title": {
@@ -28,12 +34,12 @@
         "pt": "Atletico",
         "es": "Atlético"
       },
-      "cat": "atletico",
+      "cat": "gols",
       "id": "hcEuPAhsEjg"
     },
     {
       "id": "70hJMF3ZGHE",
-      "cat": "atletico",
+      "cat": "gols",
       "title": {
         "pt": " Data: 03/05/2026🏆 Atlético de Madrid 4x0 SD Eibar⚽ 1 gol da Gio aos 61’",
         "es": "Fecha: 03/05/2026 🏆 Atlético de Madrid 4-0 SD Eibar ⚽ 1.er gol de Gio al minuto 61'"
@@ -45,7 +51,7 @@
     },
     {
       "id": "BYTlD5kGYZI",
-      "cat": "brazil",
+      "cat": "selecao",
       "tag": {
         "en": "Seleção · Ecuador",
         "pt": "Seleção · Equador",
@@ -59,7 +65,7 @@
     },
     {
       "id": "Wi500Ox0OjU",
-      "cat": "highlights",
+      "cat": "momentos",
       "tag": {
         "en": "Career compilation",
         "pt": "Compilação de carreira",
@@ -73,7 +79,7 @@
     },
     {
       "id": "rLg7lsLo_QY",
-      "cat": "atletico",
+      "cat": "gols",
       "tag": {
         "en": "Atlético de Madrid",
         "pt": "Atlético de Madrid",
@@ -87,7 +93,7 @@
     },
     {
       "id": "FktFlf6V3mY",
-      "cat": "madridcff",
+      "cat": "gols",
       "tag": {
         "en": "Madrid CFF · Liga F",
         "pt": "Madrid CFF · Liga F",
@@ -101,7 +107,7 @@
     },
     {
       "id": "b3NhINoQtDE",
-      "cat": "highlights",
+      "cat": "momentos",
       "tag": {
         "en": "Short highlights",
         "pt": "Destaques curtos",

@@ -118,22 +118,30 @@ window.DATA = {
     {img:'assets/fotos/gio-selecao-treino.jpg',  cat:'behind',   layout:'',     label:{en:'Training',pt:'Treino'}}
   ],
   photoCats:[
-    {key:'all', en:'All', pt:'Todas'},
-    {key:'atletico', en:'Atlético', pt:'Atlético'},
-    {key:'brazil', en:'Brazil', pt:'Brasil'},
-    {key:'action', en:'Match action', pt:'Jogo'},
-    {key:'portrait', en:'Portraits', pt:'Retratos'},
-    {key:'campaign', en:'Campaigns', pt:'Campanhas'},
-    {key:'behind', en:'Behind the scenes', pt:'Bastidores'}
+    {key:'all', en:'All', pt:'Todas', es:'Todas'},
+    {key:'atletico', en:'Atlético', pt:'Atlético', es:'Atlético'},
+    {key:'brazil', en:'Brazil', pt:'Brasil', es:'Brasil'},
+    {key:'action', en:'Match action', pt:'Jogo', es:'Partido'},
+    {key:'portrait', en:'Portraits', pt:'Retratos', es:'Retratos'},
+    {key:'campaign', en:'Campaigns', pt:'Campanhas', es:'Campañas'},
+    {key:'behind', en:'Behind the scenes', pt:'Bastidores', es:'Detrás de cámaras'}
+  ],
+  videoCats:[
+    {key:'all', en:'All', pt:'Todos', es:'Todos'},
+    {key:'gols', en:'Goals', pt:'Gols', es:'Goles'},
+    {key:'momentos', en:'Highlights', pt:'Melhores momentos', es:'Mejores momentos'},
+    {key:'selecao', en:'National team', pt:'Seleção', es:'Selección'},
+    {key:'bastidores', en:'Behind the scenes & campaigns', pt:'Bastidores e campanhas', es:'Detrás de cámaras y campañas'},
+    {key:'entrevistas', en:'Interviews', pt:'Entrevistas', es:'Entrevistas'}
   ],
 
   /* ---- Videos (IDs publicos do YouTube). Para adicionar: copie um bloco ---- */
   videos:[
-    {id:'BYTlD5kGYZI', cat:'brazil', tag:{en:'Seleção · Ecuador',pt:'Seleção · Equador'}, title:{en:'Brazil senior debut vs Ecuador',pt:'Estreia pela Seleção contra o Equador'}},
-    {id:'Wi500Ox0OjU', cat:'highlights', tag:{en:'Career compilation',pt:'Compilação de carreira'}, title:{en:'Highlights, goals and skills',pt:'Melhores momentos, gols e dribles'}},
-    {id:'rLg7lsLo_QY', cat:'atletico', tag:{en:'Atlético de Madrid',pt:'Atlético de Madrid'}, title:{en:'Hat-trick vs Ajax',pt:'Hat-trick contra o Ajax'}},
-    {id:'FktFlf6V3mY', cat:'madridcff', tag:{en:'Madrid CFF · Liga F',pt:'Madrid CFF · Liga F'}, title:{en:'Brace vs Valencia',pt:'Dois gols contra o Valencia'}},
-    {id:'b3NhINoQtDE', cat:'highlights', tag:{en:'Short highlights',pt:'Destaques curtos'}, title:{en:'Best moments',pt:'Melhores momentos'}}
+    {id:'BYTlD5kGYZI', cat:'selecao', tag:{en:'Seleção · Ecuador',pt:'Seleção · Equador'}, title:{en:'Brazil senior debut vs Ecuador',pt:'Estreia pela Seleção contra o Equador'}},
+    {id:'Wi500Ox0OjU', cat:'momentos', tag:{en:'Career compilation',pt:'Compilação de carreira'}, title:{en:'Highlights, goals and skills',pt:'Melhores momentos, gols e dribles'}},
+    {id:'rLg7lsLo_QY', cat:'gols', tag:{en:'Atlético de Madrid',pt:'Atlético de Madrid'}, title:{en:'Hat-trick vs Ajax',pt:'Hat-trick contra o Ajax'}},
+    {id:'FktFlf6V3mY', cat:'gols', tag:{en:'Madrid CFF · Liga F',pt:'Madrid CFF · Liga F'}, title:{en:'Brace vs Valencia',pt:'Dois gols contra o Valencia'}},
+    {id:'b3NhINoQtDE', cat:'momentos', tag:{en:'Short highlights',pt:'Destaques curtos'}, title:{en:'Best moments',pt:'Melhores momentos'}}
   ],
 
   /* ---- Gols (pagina Gols). Use o "yt" para o video do gol, se tiver ----
@@ -145,11 +153,11 @@ window.DATA = {
     {yt:'', cat:'england', date:{en:'2023',pt:'2023'}, title:{en:'First goal in England vs Tottenham',pt:'Primeiro gol na Inglaterra contra o Tottenham'}}
   ],
   goalCats:[
-    {key:'all', en:'All', pt:'Todos'},
-    {key:'brazil', en:'Brazil', pt:'Brasil'},
-    {key:'atletico', en:'Atlético', pt:'Atlético'},
-    {key:'madridcff', en:'Madrid CFF', pt:'Madrid CFF'},
-    {key:'england', en:'England', pt:'Inglaterra'}
+    {key:'all', en:'All', pt:'Todos', es:'Todos'},
+    {key:'brazil', en:'Brazil', pt:'Brasil', es:'Brasil'},
+    {key:'atletico', en:'Atlético', pt:'Atlético', es:'Atlético'},
+    {key:'madridcff', en:'Madrid CFF', pt:'Madrid CFF', es:'Madrid CFF'},
+    {key:'england', en:'England', pt:'Inglaterra', es:'Inglaterra'}
   ],
 
   /* ---- Noticias (pagina Noticias e preview na home). O mais novo no topo ---- */

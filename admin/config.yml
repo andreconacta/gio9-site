@@ -153,14 +153,15 @@ collections:
               - { name: "id", label: "ID do YouTube (a parte depois de watch?v=)", widget: "string" }
               - { name: "external", label: "Vídeo de terceiros? (marque para abrir no YouTube em vez de tocar no site)", widget: "boolean", default: false, required: false }
               - name: "cat"
-                label: "Categoria (para filtro)"
+                label: "Categoria (para filtro na página de Vídeos)"
                 widget: "select"
                 required: false
                 options:
-                  - { label: "Brasil", value: "brazil" }
-                  - { label: "Atlético", value: "atletico" }
-                  - { label: "Madrid CFF", value: "madridcff" }
-                  - { label: "Melhores momentos", value: "highlights" }
+                  - { label: "Gols", value: "gols" }
+                  - { label: "Melhores momentos", value: "momentos" }
+                  - { label: "Seleção", value: "selecao" }
+                  - { label: "Bastidores e campanhas", value: "bastidores" }
+                  - { label: "Entrevistas", value: "entrevistas" }
 
   # ---------------- FOTOS ----------------
   - name: "fotos"
