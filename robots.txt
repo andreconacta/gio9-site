@@ -3,3 +3,5 @@ Allow: /
 Disallow: /admin/
 
 Sitemap: https://giogarbelini.com/sitemap.xml
+
+# republish
