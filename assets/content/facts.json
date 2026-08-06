@@ -3,121 +3,145 @@
     {
       "k": {
         "en": "Full name",
-        "pt": "Nome completo"
+        "pt": "Nome completo",
+        "es": "Nombre completo"
       },
       "v": {
         "pt": "Giovana Queiroz Costa Garbelini",
-        "en": "Giovana Queiroz Costa Garbelini"
+        "en": "Giovana Queiroz Costa Garbelini",
+        "es": "Giovana Queiroz Costa Garbelini"
       }
     },
     {
       "k": {
         "en": "Date of birth",
-        "pt": "Nascimento"
+        "pt": "Nascimento",
+        "es": "Nacimiento"
       },
       "v": {
         "en": "21 June 2003",
-        "pt": "21 de junho de 2003"
+        "pt": "21 de junho de 2003",
+        "es": "21 de junio de 2003"
       }
     },
     {
       "k": {
         "en": "Birthplace",
-        "pt": "Naturalidade"
+        "pt": "Naturalidade",
+        "es": "Lugar de nacimiento"
       },
       "v": {
         "en": "São Paulo, Brazil",
-        "pt": "São Paulo, Brasil"
+        "pt": "São Paulo, Brasil",
+        "es": "São Paulo, Brasil"
       }
     },
     {
       "k": {
         "en": "Nationality",
-        "pt": "Nacionalidade"
+        "pt": "Nacionalidade",
+        "es": "Nacionalidad"
       },
       "v": {
         "en": "Brazilian · Spanish · American",
-        "pt": "Brasileira · espanhola · americana"
+        "pt": "Brasileira · espanhola · americana",
+        "es": "Brasileña · española · estadounidense"
       }
     },
     {
       "k": {
         "en": "Languages",
-        "pt": "Idiomas"
+        "pt": "Idiomas",
+        "es": "Idiomas"
       },
       "v": {
         "en": "Portuguese · Spanish · English",
-        "pt": "Português · espanhol · inglês"
+        "pt": "Português · espanhol · inglês",
+        "es": "Portugués · español · inglés"
       }
     },
     {
       "k": {
         "en": "Position",
-        "pt": "Posição"
+        "pt": "Posição",
+        "es": "Posición"
       },
       "v": {
         "en": "Forward (Striker / Winger)",
-        "pt": "Atacante (Centroavante / Ponta)"
+        "pt": "Atacante (Centroavante / Ponta)",
+        "es": "Delantera (Ariete / Extremo)"
       }
     },
     {
       "k": {
         "en": "Height",
-        "pt": "Altura"
+        "pt": "Altura",
+        "es": "Altura"
       },
       "v": {
         "pt": "167 cm",
-        "en": "167 cm"
+        "en": "167 cm",
+        "es": "167 cm"
       }
     },
     {
       "k": {
         "en": "Preferred foot",
-        "pt": "Pé"
+        "pt": "Pé",
+        "es": "Pie hábil"
       },
       "v": {
         "en": "Right",
-        "pt": "Destro"
+        "pt": "Destro",
+        "es": "Derecho"
       }
     },
     {
       "k": {
         "en": "Current club",
-        "pt": "Clube atual"
+        "pt": "Clube atual",
+        "es": "Club actual"
       },
       "v": {
         "pt": "Atlético de Madrid",
-        "en": "Atlético de Madrid"
+        "en": "Atlético de Madrid",
+        "es": "Atlético de Madrid"
       }
     },
     {
       "k": {
         "en": "National team",
-        "pt": "Seleção"
+        "pt": "Seleção",
+        "es": "Selección"
       },
       "v": {
         "en": "Brazil",
-        "pt": "Brasil"
+        "pt": "Brasil",
+        "es": "Brasil"
       }
     },
     {
       "k": {
         "en": "Shirt",
-        "pt": "Camisa"
+        "pt": "Camisa",
+        "es": "Dorsal"
       },
       "v": {
         "en": "#11 (national team) · #18 (club)",
-        "pt": "#11 (Seleção) · #18 (clube)"
+        "pt": "#11 (Seleção) · #18 (clube)",
+        "es": "#11 (selección) · #18 (club)"
       }
     },
     {
       "k": {
         "en": "Contract",
-        "pt": "Contrato"
+        "pt": "Contrato",
+        "es": "Contrato"
       },
       "v": {
         "en": "Through June 2027",
-        "pt": "Até junho de 2027"
+        "pt": "Até junho de 2027",
+        "es": "Hasta junio de 2027"
       }
     }
   ]

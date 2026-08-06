@@ -2,20 +2,24 @@
   "items": [
     {
       "title": {
-        "pt": "Gio abre o placar com uma ótima finalização! Gol importante pra começar a vitória. "
+        "pt": "Gio abre o placar com uma ótima finalização! Gol importante pra começar a vitória. ",
+        "es": "¡Gio abre el marcador con una gran definición! Un gol importante para iniciar la victoria."
       },
       "date": {
-        "pt": "MAI 2026"
+        "pt": "MAI 2026",
+        "es": "MAY 2026"
       },
       "cat": "atletico",
       "yt": "70hJMF3ZGHE"
     },
     {
       "title": {
-        "pt": "Gio fecha o jogo com mais um gol! Presença decisiva até o último minuto.  "
+        "pt": "Gio fecha o jogo com mais um gol! Presença decisiva até o último minuto.  ",
+        "es": "¡Gio cierra el partido con otro gol! Presencia decisiva hasta el último minuto."
       },
       "date": {
-        "pt": "MAI 2026"
+        "pt": "MAI 2026",
+        "es": "MAY 2026"
       },
       "cat": "atletico",
       "yt": "hcEuPAhsEjg"
@@ -23,7 +27,8 @@
     {
       "external": false,
       "title": {
-        "pt": "Gol"
+        "pt": "Gol",
+        "es": "Gol"
       },
       "cat": "atletico",
       "yt": "7bFOFZYGGFM"
@@ -33,11 +38,13 @@
       "cat": "atletico",
       "date": {
         "en": "Aug 2024",
-        "pt": "Ago 2024"
+        "pt": "Ago 2024",
+        "es": "Ago 2024"
       },
       "title": {
         "en": "Hat-trick on debut vs Ajax",
-        "pt": "Hat-trick na estreia contra o Ajax"
+        "pt": "Hat-trick na estreia contra o Ajax",
+        "es": "Hat-trick en su debut ante el Ajax"
       }
     },
     {
@@ -45,11 +52,13 @@
       "cat": "madridcff",
       "date": {
         "en": "2024",
-        "pt": "2024"
+        "pt": "2024",
+        "es": "2024"
       },
       "title": {
         "en": "Brace vs Valencia",
-        "pt": "Dois gols contra o Valencia"
+        "pt": "Dois gols contra o Valencia",
+        "es": "Doblete ante el Valencia"
       }
     },
     {
@@ -57,11 +66,13 @@
       "cat": "brazil",
       "date": {
         "en": "Dec 2020",
-        "pt": "Dez 2020"
+        "pt": "Dez 2020",
+        "es": "Dic 2020"
       },
       "title": {
         "en": "Senior Brazil debut vs Ecuador",
-        "pt": "Estreia pela Seleção contra o Equador"
+        "pt": "Estreia pela Seleção contra o Equador",
+        "es": "Debut con la Selección ante Ecuador"
       }
     },
     {
@@ -69,11 +80,13 @@
       "cat": "england",
       "date": {
         "en": "2023",
-        "pt": "2023"
+        "pt": "2023",
+        "es": "2023"
       },
       "title": {
         "en": "First goal in England vs Tottenham",
-        "pt": "Primeiro gol na Inglaterra contra o Tottenham"
+        "pt": "Primeiro gol na Inglaterra contra o Tottenham",
+        "es": "Primer gol en Inglaterra ante el Tottenham"
       }
     }
   ]

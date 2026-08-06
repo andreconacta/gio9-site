@@ -4,77 +4,91 @@
       "em": "🏆",
       "t": {
         "en": "Copa América Champion 2025",
-        "pt": "Campeã da Copa América 2025"
+        "pt": "Campeã da Copa América 2025",
+        "es": "Campeona de la Copa América 2025"
       },
       "s": {
         "en": "Brazil",
-        "pt": "Brasil"
+        "pt": "Brasil",
+        "es": "Brasil"
       }
     },
     {
       "em": "🏅",
       "t": {
         "en": "Liga F Player of the Month",
-        "pt": "Melhor da Liga F no mês"
+        "pt": "Melhor da Liga F no mês",
+        "es": "Jugadora del Mes de la Liga F"
       },
       "s": {
         "en": "March 2025 · Atlético de Madrid",
-        "pt": "Março de 2025 · Atlético de Madrid"
+        "pt": "Março de 2025 · Atlético de Madrid",
+        "es": "Marzo de 2025 · Atlético de Madrid"
       }
     },
     {
       "em": "🏆",
       "t": {
         "en": "Copa América Champion 2022",
-        "pt": "Campeã da Copa América 2022"
+        "pt": "Campeã da Copa América 2022",
+        "es": "Campeona de la Copa América 2022"
       },
       "s": {
         "en": "Brazil",
-        "pt": "Brasil"
+        "pt": "Brasil",
+        "es": "Brasil"
       }
     },
     {
       "em": "⭐",
       "t": {
         "en": "UEFA Women’s Champions League 2020-21",
-        "pt": "Liga dos Campeões Feminina 2020-21"
+        "pt": "Liga dos Campeões Feminina 2020-21",
+        "es": "Liga de Campeones Femenina 2020-21"
       },
       "s": {
         "en": "FC Barcelona",
-        "pt": "FC Barcelona"
+        "pt": "FC Barcelona",
+        "es": "FC Barcelona"
       }
     },
     {
       "em": "🏆",
       "t": {
         "en": "Primera División 2020-21",
-        "pt": "Primera División 2020-21"
+        "pt": "Primera División 2020-21",
+        "es": "Primera División 2020-21"
       },
       "s": {
         "en": "FC Barcelona",
-        "pt": "FC Barcelona"
+        "pt": "FC Barcelona",
+        "es": "FC Barcelona"
       }
     },
     {
       "em": "🥇",
       "t": {
         "en": "Samba Gold Feminino 2021",
-        "pt": "Samba Gold Feminino 2021"
+        "pt": "Samba Gold Feminino 2021",
+        "es": "Samba Gold Femenino 2021"
       },
       "s": {
         "en": "Best Brazilian player abroad",
-        "pt": "Melhor brasileira no exterior"
+        "pt": "Melhor brasileira no exterior",
+        "es": "Mejor jugadora brasileña en el extranjero"
       }
     },
     {
       "em": "🌏",
       "t": {
         "en": "Tokyo 2020 Olympian",
-        "pt": "Olímpica em Tóquio 2020"
+        "pt": "Olímpica em Tóquio 2020",
+        "es": "Olímpica en Tokio 2020"
       },
       "s": {
         "en": "Brazil women’s team",
-        "pt": "Seleção Brasileira"
+        "pt": "Seleção Brasileira",
+        "es": "Selección Brasileña"
       }
     }
   ]

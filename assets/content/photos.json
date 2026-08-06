@@ -6,7 +6,8 @@
       "layout": "wide",
       "label": {
         "en": "Atlético · Liga F",
-        "pt": "Atlético · Liga F"
+        "pt": "Atlético · Liga F",
+        "es": "Atlético · Liga F"
       },
       "fx": 20,
       "fy": ""
@@ -17,7 +18,8 @@
       "layout": "tall",
       "label": {
         "en": "Seleção Brasileira",
-        "pt": "Seleção Brasileira"
+        "pt": "Seleção Brasileira",
+        "es": "Selección Brasileña"
       }
     },
     {
@@ -26,7 +28,8 @@
       "layout": "",
       "label": {
         "en": "Celebration",
-        "pt": "Comemoração"
+        "pt": "Comemoração",
+        "es": "Celebración"
       }
     },
     {
@@ -35,7 +38,8 @@
       "layout": "tall",
       "label": {
         "en": "FC Barcelona",
-        "pt": "FC Barcelona"
+        "pt": "FC Barcelona",
+        "es": "FC Barcelona"
       }
     },
     {
@@ -44,7 +48,8 @@
       "layout": "wide",
       "label": {
         "en": "Atlético de Madrid",
-        "pt": "Atlético de Madrid"
+        "pt": "Atlético de Madrid",
+        "es": "Atlético de Madrid"
       }
     },
     {
@@ -53,7 +58,8 @@
       "layout": "tall",
       "label": {
         "en": "Seleção Brasileira",
-        "pt": "Seleção Brasileira"
+        "pt": "Seleção Brasileira",
+        "es": "Selección Brasileña"
       }
     },
     {
@@ -62,7 +68,8 @@
       "layout": "tall",
       "label": {
         "en": "Copa América 2025",
-        "pt": "Copa América 2025"
+        "pt": "Copa América 2025",
+        "es": "Copa América 2025"
       }
     },
     {
@@ -71,7 +78,8 @@
       "layout": "",
       "label": {
         "en": "Behind the scenes",
-        "pt": "Bastidores"
+        "pt": "Bastidores",
+        "es": "Detrás de cámaras"
       }
     },
     {
@@ -80,7 +88,8 @@
       "layout": "wide",
       "label": {
         "en": "Behind the scenes",
-        "pt": "Bastidores"
+        "pt": "Bastidores",
+        "es": "Detrás de cámaras"
       }
     },
     {
@@ -89,7 +98,8 @@
       "layout": "tall",
       "label": {
         "en": "Arsenal WFC",
-        "pt": "Arsenal WFC"
+        "pt": "Arsenal WFC",
+        "es": "Arsenal WFC"
       }
     },
     {
@@ -98,7 +108,8 @@
       "layout": "",
       "label": {
         "en": "Seleção Brasileira",
-        "pt": "Seleção Brasileira"
+        "pt": "Seleção Brasileira",
+        "es": "Selección Brasileña"
       }
     },
     {
@@ -107,7 +118,8 @@
       "layout": "",
       "label": {
         "en": "Studio",
-        "pt": "Estúdio"
+        "pt": "Estúdio",
+        "es": "Estudio"
       }
     },
     {
@@ -116,7 +128,8 @@
       "layout": "wide",
       "label": {
         "en": "Atlético · Liga F",
-        "pt": "Atlético · Liga F"
+        "pt": "Atlético · Liga F",
+        "es": "Atlético · Liga F"
       }
     },
     {
@@ -125,7 +138,8 @@
       "layout": "",
       "label": {
         "en": "Arsenal · WSL",
-        "pt": "Arsenal · WSL"
+        "pt": "Arsenal · WSL",
+        "es": "Arsenal · WSL"
       }
     },
     {
@@ -134,7 +148,8 @@
       "layout": "wide",
       "label": {
         "en": "Atlético de Madrid",
-        "pt": "Atlético de Madrid"
+        "pt": "Atlético de Madrid",
+        "es": "Atlético de Madrid"
       }
     },
     {
@@ -143,7 +158,8 @@
       "layout": "",
       "label": {
         "en": "Training",
-        "pt": "Treino"
+        "pt": "Treino",
+        "es": "Entrenamiento"
       }
     },
     {
@@ -151,7 +167,8 @@
       "img": "assets/fotos/futbolista-brasilena-gio-con-leo.jpg",
       "label": {
         "pt": "Leo Messi",
-        "en": "Leo Messi"
+        "en": "Leo Messi",
+        "es": "Leo Messi"
       },
       "cat": "behind"
     }

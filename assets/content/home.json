@@ -3,26 +3,32 @@
   "brazilImage": "assets/fotos/gio-copa-america.jpg",
   "hero_eyebrow": {
     "pt": "Atacante brasileira · Atlético de Madrid · #18",
-    "en": "Brazilian forward · Atlético de Madrid · #18"
+    "en": "Brazilian forward · Atlético de Madrid · #18",
+    "es": "Delantera brasileña · Atlético de Madrid · #18"
   },
   "hero_intro": {
     "pt": "Nascida no Brasil. Formada pelo mundo. Destemida em cada jogada.",
-    "en": "Born in Brazil. Shaped by the world. Fearless in every move."
+    "en": "Born in Brazil. Shaped by the world. Fearless in every move.",
+    "es": "Nacida en Brasil. Formada por el mundo. Sin miedo en cada jugada."
   },
   "story_h": {
     "pt": "O jogo dela cruza *fronteiras.*",
-    "en": "Her game crosses *borders.*"
+    "en": "Her game crosses *borders.*",
+    "es": "Su juego cruza *fronteras.*"
   },
   "story_p": {
     "pt": "Gio Garbelini é uma atacante brasileira internacional cujo futebol foi construído entre culturas, países e desafios. Velocidade, instinto e coragem a definem em campo. A resiliência a define fora dele.",
-    "en": "Gio Garbelini is a Brazilian international forward whose football was built across cultures, countries and challenges. Speed, instinct and courage define her on the pitch. Resilience defines her off it."
+    "en": "Gio Garbelini is a Brazilian international forward whose football was built across cultures, countries and challenges. Speed, instinct and courage define her on the pitch. Resilience defines her off it.",
+    "es": "Gio Garbelini es una delantera internacional brasileña cuyo fútbol se construyó entre culturas, países y desafíos. Velocidad, instinto y valentía la definen dentro del campo. La resiliencia la define fuera de él."
   },
   "brazil_h": {
     "pt": "Mais que uma camisa. *Um chamado.*",
-    "en": "More than a shirt. *A calling.*"
+    "en": "More than a shirt. *A calling.*",
+    "es": "Más que una camiseta. *Una llamada.*"
   },
   "brazil_p": {
     "pt": "Dois títulos da Copa América. Uma olímpica. Trinta jogos pela Seleção e contando. Toda vez que veste o Brasil, a Gio carrega os lugares, as pessoas e os sonhos que a formaram.",
-    "en": "Two Copa América titles. An Olympian. Thirty senior appearances and counting. Every time Gio wears Brazil, she carries the places, people and dreams that made her."
+    "en": "Two Copa América titles. An Olympian. Thirty senior appearances and counting. Every time Gio wears Brazil, she carries the places, people and dreams that made her.",
+    "es": "Dos títulos de la Copa América. Olímpica. Treinta partidos con la Selección y sumando. Cada vez que viste a Brasil, Gio lleva consigo los lugares, las personas y los sueños que la formaron."
   }
 }

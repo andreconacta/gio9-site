@@ -6,22 +6,26 @@
     {
       "v": "200+",
       "en": "Career<br>appearances",
-      "pt": "Jogos na<br>carreira"
+      "pt": "Jogos na<br>carreira",
+      "es": "Partidos en<br>la carrera"
     },
     {
       "v": "52",
       "en": "Career<br>goals",
-      "pt": "Gols na<br>carreira"
+      "pt": "Gols na<br>carreira",
+      "es": "Goles en<br>la carrera"
     },
     {
       "v": "18",
       "en": "Career<br>assists",
-      "pt": "Assistências<br>na carreira"
+      "pt": "Assistências<br>na carreira",
+      "es": "Asistencias<br>en la carrera"
     },
     {
       "v": "2×",
       "en": "Copa América<br>Champion",
-      "pt": "Campeã da<br>Copa América"
+      "pt": "Campeã da<br>Copa América",
+      "es": "Campeona de la<br>Copa América"
     }
   ],
   "contact": {
@@ -32,7 +36,8 @@
     "x": "giogarbelini",
     "locations": {
       "en": "Madrid · São Paulo · Worldwide",
-      "pt": "Madri · São Paulo · Mundo"
+      "pt": "Madri · São Paulo · Mundo",
+      "es": "Madrid · São Paulo · Todo el mundo"
     }
   },
   "followers": {
@@ -46,21 +51,24 @@
       "name": "Nike",
       "role": {
         "en": "Kit sponsor",
-        "pt": "Material esportivo"
+        "pt": "Material esportivo",
+        "es": "Patrocinador técnico"
       }
     },
     {
       "name": "Volkswagen",
       "role": {
         "en": "Mobility partner",
-        "pt": "Parceira de mobilidade"
+        "pt": "Parceira de mobilidade",
+        "es": "Colaborador de movilidad"
       }
     },
     {
       "name": "PlayStation",
       "role": {
         "en": "Gaming partner",
-        "pt": "Parceira de games"
+        "pt": "Parceira de games",
+        "es": "Colaborador de gaming"
       }
     }
   ]

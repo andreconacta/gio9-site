@@ -100,13 +100,59 @@
       f_name:'Nome', f_company:'Empresa', f_email:'E-mail', f_type:'Tipo de contato', f_msg:'Mensagem', f_send:'Enviar mensagem',
       f_ok:'Obrigado. Sua mensagem foi enviada, respondemos em até 48 horas.', f_err:'Algo deu errado, escreva direto para o nosso e-mail.',
       combined_k:'Alcance total'
+    },
+    es:{
+      brandTag:'Play Bold',
+      nav:[['index.html','Inicio'],['sobre.html','Perfil'],['carreira.html','Trayectoria'],['clubes.html','Clubes'],['gols.html','Goles'],['fotos.html','Fotos'],['videos.html','Vídeos'],['noticias.html','Noticias'],['contato.html','Contacto']],
+      cta:'Trabaja con Gio',
+      scroll:'Desplázate para descubrir',
+      hero_eyebrow:'Delantera brasileña · Atlético de Madrid · #18',
+      hero_intro:'Nacida en Brasil. Formada por el mundo. Sin miedo en cada jugada.',
+      man_label:'La historia',
+      man_kicker:'De São Paulo a Florida. De Madrid al mundo.',
+      man_h:'Su juego cruza <span class="serif">fronteras.</span>',
+      man_p:'Gio Garbelini es una delantera internacional brasileña cuyo fútbol se construyó entre culturas, países y desafíos. Velocidad, instinto y valentía la definen dentro del campo. La resiliencia la define fuera de él.',
+      man_link:'Conoce su historia',
+      career_label:'La trayectoria', career_h:'El camino <span class="serif">hasta aquí.</span>', career_link:'Trayectoria completa',
+      brazil_label:'Brasil', brazil_h:'Más que una camiseta. <span class="serif">Una llamada.</span>',
+      brazil_p:'Dos títulos de la Copa América. Olímpica. Treinta partidos con la Selección y sumando. Cada vez que viste a Brasil, Gio lleva consigo los lugares, las personas y los sueños que la formaron.',
+      news_label:'Novedades', news_h:'Noticias', news_link:'Todas las noticias',
+      partners_label:'Patrocinadores y colaboradores', partners_h:'Creada para marcas que mueven la cultura.',
+      partners_p:'Gio conecta el fútbol de élite con audiencias de Brasil, España y el resto del mundo, una comunidad combinada de más de 1,5 millones de seguidores. Las oportunidades de colaboración incluyen campañas, embajadora de marca, apariciones y contenido original.',
+      partners_note:'Colaboraciones seleccionadas y trabajos de campaña disponibles bajo petición.',
+      contact_label:'Colaboraciones · Medios · Apariciones', contact_h:'Vamos a generar <span class="serif">impacto.</span>',
+      contact_chips:['Patrocinio','Medios y prensa','Entrevistas','Eventos','Embajadora','Contenido'],
+      cta2_label:'Prensa · Medios · Entrevistas', cta2_h:'Vamos a <span class="serif">hablar.</span>',
+      cta2_chips:['Entrevistas','Medios y prensa','Solicitudes de reportaje','Acreditaciones','Apariciones'],
+      general_k:'General / Prensa', brands_k:'Colaboraciones y marcas', ig_k:'Instagram', based_k:'Base',
+      p_about:['Perfil','Gio <span class="serif">Garbelini.</span>','De São Paulo al mundo, la historia de una delantera internacional brasileña.'],
+      about_lead:'Nacida en São Paulo, formada entre Brasil, Florida, España e Inglaterra. Gio <span class="serif">juega con audacia.</span>',
+      about_p1:'Giovana Queiroz Costa Garbelini se hizo profesional con apenas quince años. Su paso por el Madrid CFF, el Barcelona, donde ganó la Liga de Campeones Femenina 2020-21, el Levante, el Arsenal y el Everton forjó uno de los talentos ofensivos más apasionantes del fútbol femenino actual.',
+      about_p2:'Velocidad, potencia y olfato de gol definen su juego. Brasileña, española y estadounidense, y con fluidez en tres idiomas, se mueve entre culturas con la misma naturalidad con la que supera a las defensas, una jugadora hecha para representar a una nueva generación de atletas globales.',
+      about_facts_h:'Perfil de la jugadora',
+      p_career:['Trayectoria','Clubes y <span class="serif">títulos.</span>','Seis clubes, tres países y una identidad inconfundible.'],
+      honours_h:'Títulos y premios',
+      p_clubs:['Clubes','Cada <span class="serif">capítulo.</span>','Del debut profesional con quince años a la Liga F, cada club formó a la jugadora de hoy.'],
+      p_goals:['Goles','El <span class="serif">archivo.</span>','Goles y momentos decisivos con el club y la Selección.'],
+      p_photos:['Fotos','Sobre el <span class="serif">campo.</span>','Una galería de acción de partido, retratos y campañas.'],
+      p_videos:['Vídeos','Mira a <span class="serif">Gio.</span>','Goles, regates, mejores momentos y entrevistas.'],
+      p_news:['Noticias','Últimas <span class="serif">novedades.</span>','Noticias verificadas del club y de la Selección.'],
+      p_contact:['Contacto','Trabaja con <span class="serif">Gio.</span>','Para patrocinios, medios, eventos y colaboraciones de marca. Respondemos en un plazo de 48 horas.'],
+      photos_soon:'Selección final de fotos con derechos liberados muy pronto.',
+      read_more:'Leer', watch:'Ver',
+      foot_about:'Delantera internacional brasileña. Atlético de Madrid. Selección Brasileña. Jugando con audacia, de São Paulo al mundo.',
+      foot_nav:'Navegar', foot_more:'Más', foot_connect:'Conecta', rights:'Todos los derechos reservados.',
+      f_name:'Nombre', f_company:'Empresa', f_email:'Correo', f_type:'Tipo de consulta', f_msg:'Mensaje', f_send:'Enviar mensaje',
+      f_ok:'Gracias. Tu mensaje ha sido enviado, respondemos en un plazo de 48 horas.', f_err:'Algo salió mal, escríbenos directamente por correo.',
+      combined_k:'Alcance total'
     }
   };
 
   // Idioma inicial: detecta o navegador (portugues -> pt), senao ingles.
   // Se a pessoa ja escolheu antes, respeita a escolha guardada.
-  let LANG = ((navigator.language||navigator.userLanguage||'en').toLowerCase().indexOf('pt')===0) ? 'pt' : 'en';
-  try{ const s=localStorage.getItem('gio_lang'); if(s==='pt'||s==='en') LANG=s; }catch(e){}
+  let _nl=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+  let LANG = _nl.indexOf('pt')===0 ? 'pt' : (_nl.indexOf('es')===0 ? 'es' : 'en');
+  try{ const s=localStorage.getItem('gio_lang'); if(s==='pt'||s==='en'||s==='es') LANG=s; }catch(e){}
 
   /* Icones de redes sociais (SVG). Handles ficam em data.js (contact). */
   const SOCIAL_SVG = {
@@ -134,7 +180,7 @@
 
   function ph(label,dark,corner){
     return '<div class="ph'+(dark?' dark-ph':'')+'">'+(corner?'<span class="corner"></span><span class="corner br"></span>':'')+
-      '<div class="ph-l"><span class="ic">📷</span><b>'+label+'</b><small>'+(LANG==='pt'?'Foto em breve':'Photo coming soon')+'</small></div></div>';
+      '<div class="ph-l"><span class="ic">📷</span><b>'+label+'</b><small>'+(LANG==='pt'?'Foto em breve':LANG==='es'?'Foto en breve':'Photo coming soon')+'</small></div></div>';
   }
 
   /* ---------- Header / footer / menu ---------- */
@@ -147,7 +193,7 @@
       '<a href="index.html" class="wordmark">GIO<span>.</span></a>'+
       '<nav>'+nav+'</nav>'+
       '<div class="head-right">'+
-        '<div class="lang"><button data-l="en">EN</button><button data-l="pt">PT</button></div>'+
+        '<div class="lang"><button data-l="pt">PT</button><button data-l="es">ES</button><button data-l="en">EN</button></div>'+
         '<a href="contato.html" class="header-cta">'+u.cta+' <span>↗</span></a>'+
         '<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>'+
       '</div>';
@@ -342,7 +388,7 @@
     const u=U();
     const chips=D.goalCats.map((c,i)=>'<button data-f="'+c.key+'"'+(i===0?' class="on"':'')+'>'+T(c)+'</button>').join('');
     const cards=D.goals.map(g=>{
-      const thumb=g.yt?'<div class="v-frame"><img src="https://i.ytimg.com/vi/'+g.yt+'/hqdefault.jpg" alt="'+T(g.title)+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="play"></div></div>':'<div class="v-frame">'+ph(LANG==='pt'?'Vídeo do gol':'Goal video',true,false)+'</div>';
+      const thumb=g.yt?'<div class="v-frame"><img src="https://i.ytimg.com/vi/'+g.yt+'/hqdefault.jpg" alt="'+T(g.title)+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="play"></div></div>':'<div class="v-frame">'+ph(LANG==='pt'?'Vídeo do gol':LANG==='es'?'Vídeo del gol':'Goal video',true,false)+'</div>';
       return '<div class="video-card reveal" data-cat="'+g.cat+'" data-id="'+(g.yt||'')+'" data-ext="'+(g.external?'1':'')+'">'+thumb+'<div class="v-meta"><div class="tag">'+T(g.date)+'</div><div class="ttl">'+T(g.title)+'</div></div></div>';
     }).join('');
     return pageHero(u.p_goals)+
