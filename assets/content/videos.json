@@ -33,7 +33,10 @@
         "es": "Detrás de cámaras de la campaña de Nike para el lanzamiento de la nueva camiseta de la Selección Brasileña"
       },
       "id": "jUUJY4h9TH8",
-      "cat": "bastidores"
+      "cat": "bastidores",
+      "tag": {
+        "pt": "CAMPANHAS"
+      }
     },
     {
       "title": {
