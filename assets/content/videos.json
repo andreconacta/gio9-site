@@ -3,12 +3,15 @@
     {
       "external": false,
       "title": {
-        "pt": "Gio Garbelini 🇧🇷 | Copa América | Gols, Assistências & Melhores Momentos"
+        "pt": "Backstage da campanha da Nike para lançamento da nova camisa da Seleção Brasileira",
+        "en": "Behind the scenes of Nike’s campaign for the launch of the new Brazilian National Team jersey",
+        "es": "Detrás de cámaras de la campaña de Nike para el lanzamiento de la nueva camiseta de la Selección Brasileña"
       },
+      "id": "jUUJY4h9TH8",
+      "cat": "bastidores",
       "tag": {
-        "pt": "SELEÇAO COPA AMERICA"
-      },
-      "id": "aJfKJABI2k8"
+        "pt": "CAMPANHAS"
+      }
     },
     {
       "external": false,
@@ -28,15 +31,22 @@
     {
       "external": false,
       "title": {
-        "pt": "Backstage da campanha da Nike para lançamento da nova camisa da Seleção Brasileira",
-        "en": "Behind the scenes of Nike’s campaign for the launch of the new Brazilian National Team jersey",
-        "es": "Detrás de cámaras de la campaña de Nike para el lanzamiento de la nueva camiseta de la Selección Brasileña"
+        "pt": "Gio Garbelini 🇧🇷 | Copa América | Gols, Assistências & Melhores Momentos"
       },
-      "id": "jUUJY4h9TH8",
-      "cat": "bastidores",
       "tag": {
-        "pt": "CAMPANHAS"
-      }
+        "pt": "SELEÇAO COPA AMERICA"
+      },
+      "id": "aJfKJABI2k8"
+    },
+    {
+      "external": false,
+      "title": {
+        "pt": "COLNEY CARPOOL | Gio e Frimmy | Episódio 9"
+      },
+      "tag": {
+        "pt": "ARSENAL"
+      },
+      "id": "haN172WsFjs"
     },
     {
       "id": "BYTlD5kGYZI",
